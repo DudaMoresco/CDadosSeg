@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="145" android:versionName="6.5.6" android:installLocation="auto" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.behance.behance" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="29"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature android:name="android.hardware.faketouch"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:glEsVersion="20000"/>
+    <uses-permission android:name="com.samsung.android.iap.permission.BILLING"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <application android:theme="@style/BaseTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="com.behance.network.BehanceNetworkApplication" android:allowBackup="false" android:hardwareAccelerated="true" android:largeHeap="true" android:supportsRtl="false" android:extractNativeLibs="false" android:resizeableActivity="true" android:roundIcon="@mipmap/ic_launcher_round" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:requestLegacyExternalStorage="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.samsung.android.keepalive.density" android:value="true"/>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.behance.behance" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:name="com.google.android.gms.measurement.AppMeasurementContentProvider" android:exported="false" android:authorities="com.behance.behance.google_measurement_service"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:theme="@style/BsdkFacebookLoginActivityTheme" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity android:name="com.facebook.CustomTabActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="fbconnect" android:host="cct.com.behance.behance"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.AutoInitEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="false"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="4302623a45f15f4e4f9dbc4de5ecc6a427110bc0"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResources" android:resource="@xml/global_tracker"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_opTre8JeSYKdFX5yM6MUIdkmwClUReOA"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_gcQCl8TfSWJlCYYAS67nmlmpqykUOjLK"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <activity android:name="com.behance.network.p034ui.activities.MainActivity" android:launchMode="singleTask" android:configChanges="keyboard|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:theme="@style/BaseThemeTransparentSystemUI.Dark" android:name="com.behance.network.p034ui.activities.ProjectDetailActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/BaseThemeTransparentSystemUI.Dark" android:name="com.behance.network.p034ui.activities.UserDetailsActivity">
+            <intent-filter>
+                <action android:name="com.behance.beprojects.action.VIEW_USER_PROFILE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:host="www.behance.net"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/BaseThemeTransparentSystemUI.Light" android:name="com.behance.network.p034ui.activities.TeamDetailsActivity"/>
+        <activity android:theme="@style/BaseThemeTransparentSystemUI.Dark" android:name="com.behance.network.p034ui.activities.CollectionDetailsActivity"/>
+        <activity android:theme="@style/BaseThemeTransparentSystemUI.Dark" android:name="com.behance.network.p034ui.activities.CuratedGalleryDetailsActivity"/>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.HTMLContentRendererActivity"/>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.BehanceAdobeAuthActivity"/>
+        <activity android:theme="@style/BaseThemeTransparentStatus.Transparent" android:name="com.behance.network.p034ui.activities.CreateNewMessageThreadActivity" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.SettingsActivity"/>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.SettingsNotificationsActivity"/>
+        <activity android:theme="@style/BaseThemeTransparentSystemUI" android:name="com.behance.network.p034ui.search.activity.SearchProjectResultActivity">
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.TumblrSharingActivity" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.behance.network" android:host="oauth.callback"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/BaseThemeNoStatusBar" android:name="com.behance.network.p034ui.activities.LoginActivity" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.BehanceLinkHandlerActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="behance"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:host="www.behance.net"/>
+                <data android:host="behance.net"/>
+                <data android:host="www.be.net"/>
+                <data android:host="be.net"/>
+                <data android:host="net.s2stagehance.com"/>
+                <data android:pathPattern="/workinprogress"/>
+                <data android:pathPrefix="/"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="behance.app.link"/>
+                <data android:scheme="https" android:host="behance-alternate.app.link"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.BehanceGCMNotificationClickHandlerActivity"/>
+        <activity android:theme="@style/BaseThemeNoStatusBar.Light" android:name="com.behance.network.p034ui.activities.ChromecastSlideshowActivity"/>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.PublishProjectNotificationHandlerActivity" android:excludeFromRecents="true"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:name="com.behance.network.discover.filters.DiscoverFiltersActivity"/>
+        <service android:name="com.behance.network.gcm.BehanceFCMListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.behance.network.gcm.BehanceFCMRegistrationIntentService" android:exported="false"/>
+        <receiver android:name="com.behance.behancefoundation.analytics.GPBroadcastReceiver" android:permission="android.permission.CLEAR_APP_CACHE" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.behance.network.stories.ExpirationNotificationReceiver" android:exported="false"/>
+        <activity android:theme="@style/BaseTheme" android:name="com.behance.network.p034ui.activities.SignInOnAppleTVActivity"/>
+        <service android:name="com.behance.network.p034ui.utils.AppleTVClientService" android:exported="false"/>
+        <activity android:name="com.behance.network.social.login.FacebookSocialLoginActivity"/>
+        <activity android:name="com.behance.network.social.login.GoogleSocialLoginActivity"/>
+        <activity android:theme="@style/AdobeCSDKAuthThemeActivity" android:label="@string/app_name" android:name="com.adobe.creativesdk.foundation.internal.auth.AdobeAuthSignInActivity" android:exported="true" android:multiprocess="true" android:launchMode="singleTask" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|adjustResize|adjustPan|adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="signin" android:host="complete"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="firebase_crash_collection_enabled" android:value="false"/>
+        <service android:name="com.behance.network.stories.services.UploadSegmentMediaService" android:exported="false"/>
+        <service android:name="com.behance.network.stories.services.CreateSegmentService" android:exported="false"/>
+        <activity android:name="com.behance.belive.adobe.ui.BehanceLiveActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.behance.belive.adobe.ui.BehanceLiveInfoActivity"/>
+        <activity android:name="com.behance.network.p034ui.activities.ForYouActivity"/>
+        <activity android:name="com.behance.network.profile.p031ui.activities.StatisticsDetailsActivity"/>
+        <activity android:theme="@style/BaseThemeTransparentSystemUI.Light" android:name="com.behance.network.profile.p031ui.activities.UserFollowActivity"/>
+        <activity android:name="com.behance.beprojects.comments.p019ui.ProjectCommentsActivity" android:launchMode="singleTask" android:configChanges="keyboard" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.behance.network.tools.p033ui.ProjectToolGalleryActivity"/>
+        <service android:name="com.appboy.AppboyFirebaseMessagingService" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.behance.behance"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.behance.network.gcm.BrazePushReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.behance.behance.intent.APPBOY_PUSH_RECEIVED"/>
+                <action android:name="com.behance.behance.intent.APPBOY_NOTIFICATION_OPENED"/>
+                <action android:name="com.behance.behance.intent.APPBOY_PUSH_DELETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.behance.belive.adobe.p016ui.activities.LiveStreamingActivity" android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/BsdkMaterialBaseTheme" android:name="com.behance.sdk.p036ui.activities.BehanceSDKProjectEditorActivity"/>
+        <activity android:theme="@style/BsdkMaterialBaseTheme" android:name="com.behance.sdk.p036ui.activities.BehanceSDKCropperActivity"/>
+        <activity android:theme="@style/BsdkBaseThemeTransparentSystemUI.Dark" android:name="com.behance.sdk.p036ui.activities.BehanceSDKProjectDetailActivity"/>
+        <activity android:theme="@style/BsdkUnlinkSocialAccountActivityTheme" android:name="com.behance.sdk.p036ui.activities.BehanceSDKUnlinkSocialAccountActivity"/>
+        <activity android:theme="@style/BsdkMaterialBaseTheme" android:name="com.behance.sdk.p036ui.activities.BehanceSDKEditProfileActivity"/>
+        <activity android:theme="@style/BsdkAdobeCloudSelectionViewTheme" android:name="com.behance.sdk.p036ui.activities.BehanceSDKAdobeCloudSelectionActivity"/>
+        <activity android:name="com.behance.sdk.p036ui.activities.BehanceSDKLoginToTwitterActivity"/>
+        <activity android:theme="@style/BsdkAdobeCCLauncherActivityTheme" android:name="com.behance.sdk.p036ui.activities.BehanceSDKCCLauncherActivity"/>
+        <service android:name="com.behance.sdk.services.BehanceSDKProjectEditorService"/>
+        <service android:name="com.amazonaws.mobileconnectors.p011s3.transferutility.TransferService" android:enabled="true"/>
+        <receiver android:name="com.behance.sdk.receivers.BehanceSDKInternetChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/AdobeAssetViewerLightTheme" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeUXAssetOneUpViewerActivity" android:exported="false" android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"/>
+        <activity android:theme="@style/AdobeAssetViewerLightTheme" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeUXPhotoAssetOneUpViewerActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeCSDKThemeActivity" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeUxAssetBrowserV2Activity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeAssetViewerLightTheme" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeUXAssetVideoActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeAssetViewerLightTheme" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeUXLibraryItemCollectionOneUpViewerActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeAssetViewerLightTheme" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeUXMobilePackageItemOneUpViewerActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeAssetViewerLightTheme" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeUXCompositionOneUpViewerActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeEditThemeActivity" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.edit.AdobeAssetEditActivity" android:exported="false" android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"/>
+        <activity android:theme="@style/AdobeEditThemeActivity" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.libraryedit.AdobeDesignLibraryMoveActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeCSDKThemeActivity.NoActionBar" android:name="com.adobe.creativesdk.foundation.internal.settings.CloudPickerActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/AdobeAssetViewerLightTheme" android:name="com.adobe.creativesdk.foundation.internal.storage.controllers.AdobeShowUploadTasksActivity" android:exported="false" android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:resizeableActivity="true"/>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.adobe.creativesdk.foundation.internal.auth.AdobeDataUsageNoticeActivity" android:configChanges="keyboard|keyboardHidden|screenLayout"/>
+        <activity android:theme="@style/AdobeCSDKAuthThemeActivity" android:label="@string/adobe_csdk_creative_cloud" android:name="com.adobe.creativesdk.foundation.internal.auth.AdobeAuthContinuableEventActivity" android:exported="false" android:multiprocess="true" android:launchMode="standard" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|adjustResize|adjustPan|adjustNothing"/>
+        <activity android:name="com.adobe.creativesdk.foundation.internal.base.AdobeTOUHandlerActivity"/>
+        <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:exported="false" android:excludeFromRecents="true"/>
+        <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:exported="true"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.appboy.p013ui.AppboyWebViewActivity"/>
+        <activity android:name="com.appboy.p013ui.activities.AppboyFeedActivity"/>
+        <activity android:name="com.appboy.p013ui.activities.AppboyContentCardsActivity"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.appboy.push.AppboyNotificationRoutingActivity"/>
+        <receiver android:name="com.appboy.AppboyFcmReceiver" android:exported="false"/>
+        <provider android:name="androidx.work.impl.WorkManagerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.behance.behance.workmanager-init" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false" android:directBootAware="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.firebase.auth.internal.GenericIdpActivity" android:exported="true" android:excludeFromRecents="true" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="genericidp" android:host="firebase.auth" android:path="/"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.firebase.auth.internal.RecaptchaActivity" android:exported="true" android:excludeFromRecents="true" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="recaptcha" android:host="firebase.auth" android:path="/"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.auth.api.gms.service.START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="com.facebook.internal.FacebookInitProvider" android:exported="false" android:authorities="com.behance.behance.FacebookInitProvider"/>
+        <receiver android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.behance.behance.firebaseinitprovider" android:initOrder="100" android:directBootAware="true"/>
+        <provider android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.behance.behance.lifecycle-process"/>
+        <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity" android:windowSoftInputMode="adjustUnspecified|stateVisible|adjustResize"/>
+        <activity android:name="net.hockeyapp.android.PaintActivity"/>
+        <activity android:name="net.hockeyapp.android.LoginActivity"/>
+        <activity android:name="net.hockeyapp.android.ExpiryInfoActivity"/>
+        <activity android:theme="@style/Theme.Empty" android:name="com.samsung.android.sdk.iap.lib.activity.DialogActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Empty" android:name="com.samsung.android.sdk.iap.lib.activity.CheckPackageActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Transparent" android:name="com.samsung.android.sdk.iap.lib.activity.AccountActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Empty" android:name="com.samsung.android.sdk.iap.lib.activity.PaymentActivity" android:configChanges="orientation|screenSize"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="2.1.0"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.android.billingclient.api.ProxyBillingActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <receiver android:name="com.appboy.receivers.AppboyActionReceiver" android:enabled="true" android:exported="true"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:value="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

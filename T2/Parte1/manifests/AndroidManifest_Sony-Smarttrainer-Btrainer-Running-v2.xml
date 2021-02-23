@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="20200" android:versionName="2.02.00.10160" package="jp.co.sony.smarttrainer.btrainer.running" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="26"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <permission android:name="jp.co.sony.smarttrainer.btrainer.running.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:theme="@style/AppBaseTheme" android:label="@string/id_txt_app_name" android:icon="@mipmap/ic_launcher" android:name="jp.co.sony.smarttrainer.btrainer.running.JogApplication" android:allowBackup="false" android:hardwareAccelerated="true" android:largeHeap="true" android:roundIcon="@mipmap/ic_launcher_round">
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA94bWuFekehyDdF33ZCg8wA5RQV-8TOP8"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="B-Trainer for Running"/>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_app_name" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.main.MainActivity" android:launchMode="singleTask" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Light.NoTitleBar" android:label="@string/id_txt_app_icon_name" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.launch.LauncherActivity">
+            <intent-filter android:label="@string/id_txt_app_icon_name">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http" android:host="smartsports.sony.net" android:path="/b-trainer/download/"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.launch.ExternalLauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="jp.co.sony.smarttrainer.btrainer.running" android:host="*"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.compare.SelectComparisonActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_drawer_dev_info" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.DeviceInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.HeartRateCheckActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Holo.Light.NoActionBar" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.PairingActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Holo.Light.NoActionBar" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.DeviceSetupActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:label="Import" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.log.DeviceImportActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.DeviceSimpleMessageDialogActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.jog.standalone.StandAloneJogActivity" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.jog.standalone.sonet.SonetStandAloneJogActivity" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.jog.device.DeviceJogActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.shimizu.plan.FitnessPlanDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.shimizu.wopp.FitnessPlanSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.shimizu.run.RunPrepareActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.fitness.StandaloneFitnessActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.fitness.DeviceFitnessActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_drawer_voicememo" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.voice.VoiceStampListActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_drawer_wop_menu" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.SelectWorkoutPlanActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_option_edit_my_wop" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.EditFavoritePlanActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wop.EditWorkoutPlanActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AxActionBarTheme" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.select.asics.SelectWorkoutPlanPackageWebViewActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AxActionBarTheme" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.select.sonet.SonetSelectWorkoutPlanPackageWebViewActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlayBlack" android:label="@string/id_txt_wopp_kin" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.select.SelectWorkoutPlanPackageActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.DeviceListActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.confirm.ConfirmWorkoutPlanPackageActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.detail.DetailProgressActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.progress.PackageProgressActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlayBlack" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.progress.asics.AxPackageProgressActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.progress.sonet.SonetPackageProgressActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_set_start_date_ttl" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.wopp.calendar.PackageCalendarActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.history.WorkoutHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlayBlack" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.WorkoutResultActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_option_other_info" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.additional.AdditionalInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_option_edit_logdata" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.edit.LogEditActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_share_ttl" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.share.fb.FbShareActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_share_ttl" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.share.common.CommonShareActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.CrossTrainingResultActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_drawer_settings" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.setting.AppSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_music_tracks_per_tempo" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.device.DeviceMusicBpmListActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_profile_ttl" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.profile.ProfileEditActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:label="@string/id_txt_cmn_signin" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.signin.SigninActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.signin.SignoutActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.signin.SyncDialogActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.setup.SetupActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/EulaThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.setup.EulaActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.launch.MigrationActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.launch.ParseLogActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.launch.GuestDataMigrationActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.replay.ReplayActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.setting.StaffRoleActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_drawer_goal" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.goal.manage.GoalManagerActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.goal.setting.GoalSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_drawer_goal" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.goal.detail.DetailGoalStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.runthrough.RunthroughActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.jog.DemoDeviceJogActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.history.DemoHistoryActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_demo_mode" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.DemoSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.setup.DemoSetupWorkoutActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.jog.DemoDescriptActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.workout.EditDemoWorkoutActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlayBlack" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.result.DemoWorkoutResultActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.result.DemoSelectComparisonActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_title_notifications" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.notice.NoticeListActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.demo.result.DemoScoringActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Debug" android:name="jp.co.sony.smarttrainer.btrainer.running.util.debug.DebugActivity" android:screenOrientation="portrait"/>
+        <activity android:label="DebugNfc" android:name="jp.co.sony.smarttrainer.btrainer.running.util.debug.DebugNfcSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Debug Speech" android:name="jp.co.sony.smarttrainer.btrainer.running.util.debug.DebugSpeechActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Debug Device Info" android:name="jp.co.sony.smarttrainer.btrainer.running.util.debug.DebugDeviceInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Debug Sensor Info" android:name="jp.co.sony.smarttrainer.btrainer.running.util.debug.DebugSensorInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Create Log" android:name="jp.co.sony.smarttrainer.btrainer.running.util.debug.DebugCreateLogActivity" android:screenOrientation="portrait"/>
+        <activity android:label="Debug Enc/Decript File" android:name="jp.co.sony.smarttrainer.btrainer.running.util.debug.DebugEncryptActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/app_name" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.opinionbox.V1Activity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppThemeTransparent" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.workout.NotifyTrainingActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeTransparent" android:label="@string/id_txt_setting_import_export" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.result.RunkeeperLinkActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppThemeOverlay" android:label="@string/id_txt_setting_import_export" android:name="jp.co.sony.smarttrainer.btrainer.running.ui.setting.link.ServiceLinkActivity" android:screenOrientation="portrait"/>
+        <service android:label="B-TrainerService" android:name="jp.co.sony.smarttrainer.btrainer.running.service.BtrainerForRunningService" android:exported="false"/>
+        <service android:label="B-TrainerFitnessService" android:name="jp.co.sony.smarttrainer.btrainer.running.service.BtrainerForFitnessService" android:exported="false"/>
+        <service android:label="B-TrainerCommunicationService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.server.JogServerCommunicationService" android:exported="false"/>
+        <service android:label="B-TrainerMusicService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.music.JogMusicPlayerService" android:exported="false"/>
+        <service android:label="B-TrainerSensorService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.sensor.JogSensorService" android:exported="false"/>
+        <service android:label="B-TrainerDeviceService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.device.JogDeviceService" android:exported="false"/>
+        <service android:label="B-TrainerTrainingService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.workout.JogWorkoutService" android:exported="false"/>
+        <service android:label="B-TrainerUploadService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.server.asics.AsicsUploadService" android:exported="false"/>
+        <service android:label="B-TrainerUploadService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.server.sonet.SonetUploadService" android:exported="false"/>
+        <service android:label="B-TrainerSyncService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.server.SyncService" android:exported="false"/>
+        <service android:label="B-TrainerGoalService" android:name="jp.co.sony.smarttrainer.btrainer.running.extension.goal.JogGoalService" android:exported="false"/>
+        <service android:name="jp.co.sony.smarttrainer.btrainer.running.service.JogSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="jp.co.sony.smarttrainer.btrainer.running.receiver.JogDeviceBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.bluetooth.device.action.BOND_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="jp.co.sony.smarttrainer.btrainer.running.receiver.JogAlarmBroadcastReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="jp.co.sony.smarttrainer.btrainer.running.receiver.JogSignInStateBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="jp.co.sony.smarttrainer.btrainer.running.controller.persistent.ACTION_CHANGE_STATE_SIGN_IN"/>
+                <action android:name="jp.co.sony.smarttrainer.btrainer.running.controller.persistent.ACTION_CHANGE_STATE_SIGN_OUT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <provider android:name="com.facebook.FacebookContentProvider" android:exported="true" android:authorities="@string/facebook_authority"/>
+        <provider android:name="android.support.v4.content.FileProvider" android:exported="false" android:authorities="jp.co.sony.smarttrainer.btrainer.running.FileProvider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="android.support.VERSION" android:value="26.0.1"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="jp.co.sony.smarttrainer.btrainer.running.firebaseinitprovider" android:initOrder="100"/>
+    </application>
+</manifest>

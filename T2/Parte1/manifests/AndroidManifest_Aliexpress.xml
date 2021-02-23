@@ -1,0 +1,2178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="356" android:versionName="8.24.1" android:installLocation="auto" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.alibaba.aliexpresshd" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" android:allowBackup="false"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="com.android.providers.media.MediaProvider"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.alibaba.aliexpresshd.permission.MIPUSH_RECEIVE"/>
+    <permission android:name="com.alibaba.aliexpresshd.permission.MIPUSH_RECEIVE" android:protectionLevel="signatureOrSystem"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <permission android:name="com.alibaba.aliexpresshd.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.alibaba.aliexpresshd.permission.PROCESS_PUSH_MSG"/>
+    <permission android:name="com.alibaba.aliexpresshd.permission.PUSH_PROVIDER" android:protectionLevel="signatureOrSystem"/>
+    <permission android:name="com.alibaba.aliexpresshd.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.MANAGE_FINGERPRINT"/>
+    <uses-permission android:name="cn.org.ifaa.permission.USE_IFAA_MANAGER"/>
+    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="com.aliexpress.app.AliExpressApp" android:allowBackup="false" android:hardwareAccelerated="true" android:largeHeap="true" android:supportsRtl="true" android:usesCleartextTraffic="true" android:roundIcon="@mipmap/ic_launcher_round" android:requestLegacyExternalStorage="true">
+        <meta-data android:name="com.samsung.android.bixbyvision.config" android:value="assets/vision_config.xml"/>
+        <meta-data android:name="google_analytics_deferred_deep_link_enabled" android:value="true"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAe33P3RJD7MNtFxIhiMBHuIYwkwpQHJnY"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <activity android:name="com.taobao.avplayer.DWDanmaEditActivity"/>
+        <activity android:name="com.taobao.avplayer.detail.DWVideoDetailActivity"/>
+        <activity android:name="com.taobao.avplayer.HivFullScreenActivity"/>
+        <activity android:name="com.alibaba.triver.triver_render.view.video.video.VideoEditActivity" android:exported="false">
+            <intent-filter>
+                <action android:name="videoactivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="mycategory"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.Main" android:name="com.alibaba.aliexpresshd.home.ui.MainActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustPan" android:noHistory="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="miui.intent.category.SYSAPP_RECOMMEND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/home.htm"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/messages.htm"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/home.htm"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/shopcart/detail.htm.*"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/shopcart/detail.htm.*"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/shopcart/shopcartDetail.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/shopcart/shopcartDetail.htm"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/shopcart/list.html"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/shopcart/list.html"/>
+                <data android:host="feed.aliexpress.com" android:pathPattern="/index.html"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/index.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/index.htm"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:process=":channel" android:authorities="com.alibaba.aliexpresshd.firebaseinitprovider" android:initOrder="100"/>
+        <provider android:name="com.alibaba.aliexpresshd.provider.SearchSuggestionProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.provider.SearchSuggestionProvider"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.alibaba.widget.AliexpressWidget">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider"/>
+            <intent-filter>
+                <action android:name="com.alibaba.aliexpress.widget.icon.click"/>
+                <action android:name="com.alibaba.aliexpress.widget.search.click"/>
+                <action android:name="com.alibaba.aliexpress.widget.qrcode.click"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="CHANNEL" android:value="channel_name"/>
+        <service android:name="org.android.agoo.accs.AgooService" android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.taobao.agoo.AgooCommondReceiver" android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.alibaba.aliexpresshd.intent.action.COMMAND"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="$classPath:com.aliexpress.module.product.service.IProductService" android:value="com.aliexpress.module.product.service.ProductServiceImpl"/>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="org.android.agoo.gcm.AgooFirebaseInstanceIDService" android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="org.android.agoo.gcm.AgooFirebaseMessagingService" android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true" android:process=":channel">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:process=":channel">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:name="com.aliexpress.module.myorder.OrderListActivity" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/orderlist_searchable"/>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/orderList/orderList.htm"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/orderList/orderList.htm"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/myaccount/orderList.htm"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/myaccount/orderList.htm"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/order_list.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/order_list.htm"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/orderList.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/orderList.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.myorder.OrderDetailActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/order_detail.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/order_detail.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.PicView" android:name="com.aliexpress.module.myorder.PhotoPreviewActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/photo_preview.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/photo_preview.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.WithNavDrawer" android:name="com.aliexpress.module.myorder.TrackingInfoActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/tracking_info.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/tracking_info.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.myorder.OrderRefundInfoActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.myorder.FeedbackQARecActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity android:name="com.aliexpress.module.myorder.OrderListOnlyShowPreSaleActivity" android:exported="false" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.myorder.DynamicFormActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/dForm/main.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/dForm/main.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.myorder.tracking.AENewTrackingActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="com.taobao.android.intent.category.WEEX"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/tracking.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.store.service.IStoreService" android:value="com.aliexpress.module.module_store.StoreServiceImpl"/>
+        <activity android:theme="@style/AppTheme.TransparentStatusBar" android:name="com.aliexpress.module.module_store.SellerStoreActivity" android:configChanges="keyboardHidden|navigation|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/store/storeHome.htm"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/store/storeHome.htm"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/storeHome.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/storeHome.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/store/v3/home.html"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/store/v3/home.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.windvane.service.IWindvaneService" android:value="com.aliexpress.module.windvane.service.WindvaneServiceImpl"/>
+        <activity android:name="android.taobao.windvane.runtimepermission.PermissionActivity"/>
+        <provider android:name="com.aliexpress.module.windvane.provider.WindVaneDefaultFileProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.interactProvider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <meta-data android:name="$classPath:com.aliexpress.module.detailv4.contract.IComponentInjectService" android:value="com.aliexpress.ru.RuComponentInjectService"/>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.aliexpress.ru.UpsaleRecommendationsActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/product_upsale.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/product_upsale.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.miniapp.MiniAppHookActivity" android:exported="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http" android:host="m.aliexpress.com" android:pathPattern="/miniapp/index.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/miniapp/index.html"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mini" android:host="platformapi" android:pathPattern="/startapp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mini" android:host="m.aliexpress.com" android:pathPattern="/miniapp/index.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/ActivityTransparent" android:name="com.aliexpress.module.miniapp.view.AEPermissionRequestActivity" android:exported="true" android:multiprocess="true" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <meta-data android:name="com.duanqu.appname" android:value="AE"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.settings.service.ISettingService" android:value="com.aliexpress.module.settings.service.SettingServiceImpl"/>
+        <activity android:name="com.aliexpress.module.settings.SettingsActivity" android:exported="false" android:screenOrientation="user" android:configChanges="keyboardHidden|navigation|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/app_setting.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/app_setting.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.settings.PictureQualityActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/picture_quality.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/picture_quality.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.settings.EvaluateGuideActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/app_evaluate_guide.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.dispute.view.DisputeOpenOrModifyActivity" android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/open_modify_dispute.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/open_modify_dispute.html"/>
+                <data android:scheme="https" android:host="*.aliexpress.com" android:pathPattern="/issue/fastissue/createIssueStep1.htm"/>
+                <data android:scheme="https" android:host="*.aliexpress.ru" android:pathPattern="/issue/fastissue/createIssueStep1.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.dispute.view.ProofDetailActivity" android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme.WithNavDrawer" android:name="com.aliexpress.module.dispute.view.DisputeDetailActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/dispute_detail.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/dispute_detail.html"/>
+                <data android:scheme="https" android:host="*.aliexpress.com" android:pathPattern="/issue/fastissue/Detail.htm"/>
+                <data android:scheme="https" android:host="*.aliexpress.ru" android:pathPattern="/issue/fastissue/Detail.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.dispute.view.DisputeAppealActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.dispute.view.DisputeHistoryActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.dispute.view.DisputeReturnGoodActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="*.aliexpress.com" android:pathPattern="/app/dispute_return_good.html"/>
+                <data android:scheme="https" android:host="*.aliexpress.ru" android:pathPattern="/app/dispute_return_good.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.dispute.view.DisputePickupAtHomeActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.dispute.view.AEFullScreenPlayVideoActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.dispute.view.AEFullScreenOnlyPlayVideoActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.navigation.service.INavigationService" android:value="com.aliexpress.module.navigation.service.NavigationServiceImpl"/>
+        <activity android:name="com.aliexpress.module.navigation.AEBuildingActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.aliexpress.module.navigation.DispatcherActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="aliexpress"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/web-view.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.navigation.HttpDispatcherActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="s.click.aliexpress.ru"/>
+                <data android:host="s.click.aliexpress.com"/>
+                <data android:host="s.aliexpress.com"/>
+                <data android:host="a.aliexpress.com"/>
+                <data android:host="a.aliexpress.ru"/>
+                <data android:host="sale.aliexpress.com"/>
+                <data android:host="sale.aliexpress.ru"/>
+                <data android:host="campaign.aliexpress.com"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.navigation.ShortCutDispatcherActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustPan"/>
+        <meta-data android:name="$modulePath:detail" android:value="com.aliexpress.module.detail.ProductDetailModule"/>
+        <activity android:theme="@style/DetailTheme" android:name="com.aliexpress.global.ProductDetailActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/s/item/.*.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/s/item/.*.html"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/item/.*.html"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/item/.*.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/mod_detail_Overlay.HalfTransparent" android:name="com.aliexpress.module.detail.overlay.TipsOverlayActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/tips_overlay.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/tips_overlay.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.aliexpress.module.ru.sku.ProductSkuActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:supportsRtl="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/product_sku.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/product_sku.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.component.aftersales.AfterSalesServiceActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/after_sales_service.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/after_sales_service.htm"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.home.service.IHomeService" android:value="com.aliexpress.module.home.service.HomeServiceImpl"/>
+        <activity android:theme="@style/AppTheme.TransparentStatusBar" android:name="com.aliexpress.module.ranking.ui.RankingDetailActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/ranking/detail.htm"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.framework.inject.cart.IShoppingCartDIService" android:value="$classPath:com.aliexpress.module.shopcart.provider.ShoppingCartDIServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.shopcart.service.IShopCartService" android:value="$classPath:com.aliexpress.module.shopcart.ShopCartServiceImpl"/>
+        <activity android:name="com.aliexpress.module.shopcart.ShopingCartActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/shopcart/detail.htm.*"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/shopcart/detail.htm.*"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/shopcart/shopcartDetail.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/shopcart/shopcartDetail.htm"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/shopcart/list.html"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/shopcart/list.html"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/shopcart/detail/newpage.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/shopcart/detail/newpage.htm"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.payment.service.IPaymentService" android:value="$classPath:com.aliexpress.module.payment.provider.PaymentServiceImpl"/>
+        <activity android:theme="@style/AECashierDeskActivityTheme.Transparent" android:name="com.aliexpress.module.payment.AECashierDeskActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/cashier_desk.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/cashier_desk.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.DisableMultiTouch" android:name="com.aliexpress.module.payment.cardManager.CardManagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/pay_card_manager.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/pay_card_manager.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UltronRelativePayTheme" android:name="com.aliexpress.module.payment.ultron.ui.UltronSecondPayConfirmActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/order/secpay.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/order/secpay.html"/>
+                <data android:scheme="http" android:host="m.aliexpress.com" android:pathPattern="/order/secpay.html"/>
+                <data android:scheme="http" android:host="m.aliexpress.ru" android:pathPattern="/order/secpay.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/TransparentActivityTheme" android:name="com.aliexpress.module.payment.biz.mini.MiniSecondPayConfirmActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/mini_order_secpay.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/mini_order_secpay.html"/>
+                <data android:scheme="http" android:host="m.aliexpress.com" android:pathPattern="/app/mini_order_secpay.html"/>
+                <data android:scheme="http" android:host="m.aliexpress.ru" android:pathPattern="/app/mini_order_secpay.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UltronRelativePayTheme" android:name="com.aliexpress.module.payment.ultron.ui.UltronPayResultActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|adjustResize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/pay_result.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/pay_result.html"/>
+                <data android:scheme="http" android:host="m.aliexpress.com" android:pathPattern="/app/pay_result.html"/>
+                <data android:scheme="http" android:host="m.aliexpress.ru" android:pathPattern="/app/pay_result.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.payment.PayWebViewActivity" android:exported="false" android:excludeFromRecents="true" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/pay_web_view.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/pay_web_view.htm"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.channel.service.IChannelService" android:value="com.aliexpress.module.channel.provider.ChannelServiceImpl"/>
+        <activity android:name="com.aliexpress.module.channel.ChannelShellActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/channel_shell.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/channel_shell.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.BricksActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/bricks.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/bricks.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.CoinChannelActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/coin_channel.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/coin_channel.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.CoinBricksActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/coin_bricks.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/coin_bricks.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.DealsChannelActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/deals_channel.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/deals_channel.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.DealsBricksActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/deals_bricks.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/deals_bricks.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.TimeLineActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/time_line.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/time_line.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.TimeLineBricksActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/time_line_bricks.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/time_line_bricks.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.SpanishActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/spanish.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/spanish.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.BaseUgcBricksActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/base_ugc_bricks.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/base_ugc_bricks.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.channel.childchannelactivity.UgcFanZoneBricksActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/ugc_fan_zone_bricks.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/ugc_fan_zone_bricks.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/ActivityTransparent" android:name="com.aliexpress.module.share.ui.AEShareActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/share.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/share.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/ActivityTransparent" android:name="com.aliexpress.module.share.ui.AECodeTipsActivity" android:exported="false" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/ActivityTransparent" android:name="com.aliexpress.module.share.ui.AEShareConfigActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/share_config.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/share_config.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/ActivityTransparent" android:name="com.aliexpress.module.share.ui.AEShareV2Activity" android:exported="false" android:multiprocess="true" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/ActivityTransparent" android:name="com.aliexpress.module.share.domain.ShareBackFlowActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="star.aliexpress.com" android:pathPattern="/share/share.htm"/>
+                <data android:scheme="https" android:host="*.aliexpress.ru" android:pathPattern="/share/share.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.share.ui.AEQRCodeActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.share.service.IShareService" android:value="com.aliexpress.module.share.service.ShareServiceImpl"/>
+        <provider android:name="com.aliexpress.module.share.provider.ShareImageProvider" android:exported="false" android:authorities="@string/file_provider_authority" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/share_file_provider_path"/>
+        </provider>
+        <activity android:name="com.aliexpress.module.account.MemberBirthdayEditActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/member_birthday_edit.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/member_birthday_edit.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.aliexpress.module.account.MyAccountSettingsActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/my_account_settings.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/my_account_settings.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.aliexpress.module.account.AccountInfoActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/account_info.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/account_info.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.aliexpress.module.aftersale.ResultActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/aftersale/result.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/aftersale/result.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.aliexpress.module.account.FMCGWebViewActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="melon.aliexpress.ru" android:pathPattern="/profile/orders"/>
+                <data android:host="est.aliexpress.ru" android:pathPattern="/profile/orders"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.account.service.IAccountService" android:value="com.aliexpress.module.account.service.AccountServiceImpl"/>
+        <activity android:theme="@style/AppTheme.WithNavDrawer" android:name="com.aliexpress.module.wish.WishListStoreListActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/AppTheme.WithNavDrawer" android:name="com.aliexpress.module.wish.ui.MyFavoritesActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/wishlist/wish_list_product_list.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/wishlist/wish_list_product_list.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.wish.WishListQueryByGroupActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.wish.ui.ProductListActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.wish.GroupAddProducts4BatchActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.wish.QuickWishListCreateGroupActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/mWishListGroupListActivityTheme.Transparent" android:name="com.aliexpress.module.wish.QuickWishListGroupListActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.wish.similar.SimilarProductListActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.wish.service.IWishService" android:value="$classPath:com.aliexpress.module.wish.provider.WishServiceImpl"/>
+        <activity android:theme="@style/AppTheme.Search" android:name="com.alibaba.aliexpress.android.search.nav.SearchActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/search.htm"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.android.search.ProductListActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustPan">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/search.htm"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/wholesale-"/>
+                <data android:host="www.aliexpress.com" android:pathPattern="/w/wholesale-.*.html"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/w/wholesale-.*.html"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.searchcategory.service.ISearchCategoryService" android:value="com.aliexpress.module.searchcategory.service.SearchCategoryServiceImpl"/>
+        <activity android:theme="@style/AppTheme.DisableMultiTouch.TransparentBackground" android:name="com.aliexpress.module.searchcategory.SearchCategoryNaviActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/category.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.imagesearch.irp.IrpActivity" android:exported="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize|adjustPan|adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="com.samsung.android.sdk.bixbyvision.PartialBinding"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/imagesearch/uploading.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.component.searchframework.muise.MUSPageActivity" android:exported="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize|adjustPan|adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="com.samsung.android.sdk.bixbyvision.PartialBinding"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/muise_scan_dev"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/xsdebugger_connect"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/IrpNoAnimStyle" android:name="com.aliexpress.module.imagesearch.quicksetting.SingleIrpActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize|adjustPan|adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/imagesearch/qsuploading.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/ImageSearchDialogStyle" android:name="com.aliexpress.module.imagesearch.ImageSearchShareGuideActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.qrcode.view.QRCodeImageSearchActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/search/imageSearch.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.qrcode.auth.QRCodeResultActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.qrcode.album.ImageSearchPhotoPickerActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.component.searchframework.muise.SearchMuiseTestActivity" android:exported="false" android:screenOrientation="portrait" android:windowNoTitle="true">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/template_dev"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/TransparentActivity" android:name="com.aliexpress.module.imagesearch.quicksetting.ScreenRecordActivity" android:exported="true" android:taskAffinity="plt.screen.shot" android:launchMode="singleTask" android:autoRemoveFromRecents="true"/>
+        <activity android:name="com.aliexpress.component.searchframework.rcmd.detail.DetailStoreRcmdActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/recommend/detailStoreRecommend.html"/>
+            </intent-filter>
+        </activity>
+        <provider android:name="com.alibaba.aliexpress.android.search.nav.SearchSuggestionProvider" android:exported="false" android:authorities="com.alibaba.aliexpress.android.search.nav.SearchSuggestionProvider"/>
+        <meta-data android:name="android.app.default_searchable" android:value="com.alibaba.aliexpress.android.search.ProductListActivity"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.search.service.ISearchService" android:value="com.alibaba.aliexpress.android.service.SearchServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.component.searchframework.outservice.rcmd.IRcmdService" android:value="com.aliexpress.component.searchframework.rcmd.service.RcmdServiceImp"/>
+        <meta-data android:name="$classPath:com.aliexpress.component.searchframework.outservice.jarvis.IJarvisService" android:value="com.aliexpress.component.searchframework.jarvis.service.JarvisServiceImp"/>
+        <service android:label="@string/AE_ScreenShop" android:icon="@drawable/ic_imagesearch_icon" android:name="com.aliexpress.module.imagesearch.quicksetting.ScreenShotService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.aliexpress.module.imagesearch.quicksetting.ScreenCaptureService" android:enabled="true" android:foregroundServiceType="20"/>
+        <activity android:name="com.aliexpress.component.media.old_version.VideoPlayActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/video_old.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/video_old.html"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/video.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/video.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.component.media.VideoPlayActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/video_temp.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/video_temp.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module_shipping_address_service.IShippingAddressService" android:value="com.aliexpress.module.shippingaddress.service.ShippingAddressServiceImpl"/>
+        <activity android:theme="@style/shipping_address_MyShippingAddressActivity" android:name="com.aliexpress.module.shippingaddress.view.MyShippingAddressActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/addressList.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/addressList.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/mod_shipping_address_AddAddressActivity.Transparent" android:name="com.aliexpress.module.shippingaddress.view.AddAddressActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/addaddress.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/addaddress.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/mod_shipping_address_AutoFindAddressActivity.Transparent" android:name="com.aliexpress.module.shippingaddress.view.AutoFindAddressActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateVisible"/>
+        <activity android:theme="@style/mod_shipping_address_AddAddressActivity.Transparent" android:name="com.aliexpress.module.shippingaddress.view.ChooseLocationActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/address/chooseLocation.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/address/chooseLocation.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.placeorder.ConfirmOrderActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/place_order.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/place_order.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/VerifyMobileNumberTheme.HalfTransparent" android:name="com.aliexpress.module.placeorder.verifyphonenumber.VerifyMobileNumberActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/verifyMobileNumber.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/verifyMobileNumber.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/TransparentActivityTheme" android:name="com.aliexpress.module.placeorder.biz.mini.ui.MiniOrderPaymentActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/mini_order_confirm.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/mini_order_confirm.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$modulePath:placeorder" android:value="com.aliexpress.module.placeorder.PlaceOrderModule"/>
+        <activity android:theme="@style/Theme.Light.NoTitleBar" android:name="com.taobao.android.ultron.common.UltronSwitchActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.poplayer.service.IPoplayerService" android:value="$classPath:com.aliexpress.module.poplayer.provider.PoplayerServiceImpl"/>
+        <service android:name="com.aliexpress.module.ugc.adapter.powermsg.PowermsgAccsReceiveService" android:exported="false"/>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.aliexpress.module.ugc.adapter.router.AEWakeActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="liveqa.aliexpress.com" android:path="/dispose"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.ugc.adapter.service.IUgcAdapterService" android:value="com.aliexpress.module.ugc.adapter.provider.UgcAdapterServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.framework.inject.ugc.IUgcUrlMatcher" android:value="com.aliexpress.module.ugc.adapter.UgcUrlMatcher"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.modules.collection.view.activity.CollectionActivity"/>
+        <activity android:name="com.alibaba.ugc.modules.profile.view.ProfileBioActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.alibaba.ugc.modules.profile.view.UGCPersonalInfoActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme.Transparent" android:name="com.alibaba.ugc.modules.profile.view.UGCProfileActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="*.aliexpress.com" android:pathPattern="/m/profile/backflow/.*"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.modules.profile.view.ProfileNickNameActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateVisible|adjustPan"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.modules.bigpromotion.view.CampaignResultActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.modules.bigpromotion.view.LabelContentActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.modules.profile.view.FindAccountActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.modules.profile.view.FriendsContactActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/AppTheme" android:name="com.alibaba.ugc.modules.profile.view.MyProfileActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/profile.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/profile.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.postdetail.view.activity.UGCPostDetailActivity" android:configChanges="orientation|screenLayout|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.newpost.view.activity.UGCNewPostActivity" android:screenOrientation="portrait" android:configChanges="orientation|screenLayout|screenSize" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="star.aliexpress.com" android:pathPattern="/post/.*"/>
+                <data android:host="star.aliexpress.ru" android:pathPattern="/post/.*"/>
+                <data android:host="star.aliexpress.com" android:pathPattern="/video/.*"/>
+                <data android:host="star.aliexpress.ru" android:pathPattern="/video/.*"/>
+                <data android:host="star.aliexpress.com" android:pathPattern="/.*/article.htm"/>
+                <data android:host="star.aliexpress.ru" android:pathPattern="/.*/article.htm"/>
+                <data android:host="star.aliexpress.com" android:pathPattern="/.*/listing.htm"/>
+                <data android:host="star.aliexpress.ru" android:pathPattern="/.*/listing.htm"/>
+                <data android:host="star.aliexpress.com" android:pathPattern="/.*/collage.htm"/>
+                <data android:host="star.aliexpress.ru" android:pathPattern="/.*/collage.htm"/>
+                <data android:host="shopnews.aliexpress.com" android:path="/shopnews/postDetail.htm"/>
+                <data android:host="shopnews.aliexpress.ru" android:path="/shopnews/postDetail.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.postdetail.view.activity.UGCWishListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme" android:name="com.alibaba.ugc.postdetail.view.activity.CollageDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.feeds.view.activity.TypeTagActivity"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.feeds.view.activity.HashTagActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.feeds.view.activity.MyFollowingActivity" android:exported="true" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar.Fullscreen" android:name="com.aliexpress.ugc.feeds.view.activity.NewUserGuideActivity" android:configChanges="orientation|screenLayout|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="star.aliexpress.com" android:pathPattern="/feeds/newuserguide.htm"/>
+                <data android:host="star.aliexpress.ru" android:pathPattern="/feeds/newuserguide.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.feeds.view.activity.FeedEditPicksActivity" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.feeds.view.activity.InsBigCardActivity" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:theme="@style/UgcAETheme.TransparentStatusBar" android:name="com.alibaba.aliexpress.live.view.LiveScrollListActivity" android:launchMode="singleTask" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="live.aliexpress.com" android:pathPrefix="/live/"/>
+                <data android:host="live.aliexpress.ru" android:pathPrefix="/live/"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/UgcAETheme.TransparentStatusBar" android:name="com.alibaba.aliexpress.live.landing.ui.LiveLandingActivity" android:configChanges="orientation|screenLayout|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/activite/landing.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/activite/landing.htm"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/activite/mLanding.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/activite/mLanding.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.live.landing.ui.LiveHighLightListActivity" android:exported="false" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:name="com.alibaba.aliexpress.live.landing.ui.LiveTimeScheduleActivity" android:exported="false" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:name="com.alibaba.aliexpress.live.landing.ui.LiveStoreLivesActivity" android:configChanges="orientation|screenLayout|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/activite/storeLives.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/activite/storeLives.htm"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/activite/mStoreLives.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/activite/mStoreLives.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.live.landing.ui.MySubscribeActivity" android:configChanges="orientation|screenLayout|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/mySubscribed.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/mySubscribed.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.live.landing.ui.BloggerLivesActivity" android:configChanges="orientation|screenLayout|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/hostLives.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/hostLives.htm"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.weex.service.IWeexService" android:value="com.aliexpress.module.weex.service.WeexServiceImpl"/>
+        <activity android:name="com.aliexpress.module.weex.ui.AEWeexActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/ActivityTransparent" android:name="com.aliexpress.module.weex.ui.dialog.WeexDialogActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <meta-data android:name="$modulePath:weex" android:value="com.aliexpress.module.weex.init.WeexConfigModule"/>
+        <meta-data android:name="$classPath:com.aliexpress.android.globalhouyiadapter.service.IGlobalHouyiService" android:value="$classPath:com.aliexpress.android.globalhouyiadapter.provider.GlobalHouyiServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.android.globalhouyiadapter.service.IGlobalHouyiFacadeService" android:value="$classPath:com.aliexpress.android.globalhouyiadapter.provider.GlobalHouyiFacadeServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.framework.inject.houyi.IHouyiDIService" android:value="$classPath:com.aliexpress.component.houyi.provider.HouyiDIServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.extra.service.IExtraService" android:value="$classPath:com.aliexpress.module.extra.service.ExtraServiceImpl"/>
+        <activity android:name="com.aliexpress.component.dinamicx.demo.DXUnitTestActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustPan" android:noHistory="false">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/dxtest.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.alibaba.aliexpresshd.NotificationDispatcherActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/notification_dispatcher.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/notification_dispatcher.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpresshd.push.v2.NotificationListActivityV2" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/notification_listv2.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/notification_listv2.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpresshd.push.NotificationListActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/notification_list.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/notification_list.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.alibaba.aliexpresshd.push.NotificationSettingActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/notification_setting.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/notification_setting.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.alibaba.aliexpresshd.ThirdNotificationClickActivity" android:exported="true" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.alibaba.aliexpresshd.TaobaoIntentService" android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.aliexpresshd.intent.mipush.action.COMMAND"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="$classPath:com.aliexpress.module.push.service.INotificationService" android:value="com.aliexpress.module.push.service.NotificationServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.push.service.IPushService" android:value="com.aliexpress.module.push.service.PushServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.push.service.IEdmService" android:value="com.aliexpress.module.push.service.EdmServiceImpl"/>
+        <service android:name="com.aliexpress.module.traffic.DDLAccsService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="$classPath:com.aliexpress.module.traffic.service.ITrafficService" android:value="com.aliexpress.module.traffic.service.TrafficServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.framework.inject.traffic.ITrafficDIService" android:value="com.aliexpress.module.traffic.service.TrafficDIServiceImpl"/>
+        <receiver android:name="com.aliexpress.module.traffic.receiver.PackageFirstLaunchReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_PACKAGE_FIRST_LAUNCH"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.aliexpress.module.traffic.receiver.ReferrerReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/AppTheme" android:name="com.alibaba.ae.dispute.ru.ui.returnMethods.SelectReturnMethodActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/dispute_easy_return_good.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.alibaba.ae.dispute.ru.ui.returnItems.EasyReturnStepActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/dispute_easy_return_steps.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="AliExpress"/>
+        <activity android:theme="@style/com_facebook_activity_theme" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <provider android:name="com.facebook.FacebookContentProvider" android:exported="false" android:authorities="com.facebook.app.FacebookContentProvider166363243399924"/>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.aliexpress.module.facebook.activity.AEFacebookActivity" android:exported="false"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.facebook.service.IFacebookService" android:value="$classPath:com.aliexpress.module.facebook.provider.FacebookServiceImpl"/>
+        <activity android:name="com.alibaba.aliexpress.featuremanager.FeatureLoadingActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.coinsdk.service.ICoinSdkService" android:value="$classPath:com.aliexpress.module.cointask.provider.CoinSdkServiceImpl"/>
+        <activity android:name="com.aliexpress.module.suggestion.SuggestionActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/suggestion.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/suggestion.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.coindetail.CoinsExchangeActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/coin_exchange.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/coin_exchange.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.currencyselect.SelectionCurrencyActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/select_currency.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/select_currency.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.webview.service.IWebviewService" android:value="com.aliexpress.module.webview.service.WebviewServiceImpl"/>
+        <activity android:name="com.aliexpress.module.webview.SimpleWebViewActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/web_view.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/web_view.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.webview.SimpleLocalWebViewActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/web_view_local.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/web_view_local.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/ActivityLikeDialogStyle" android:name="com.aliexpress.module.webview.WebViewTranslateActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/webview/webview_translate.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/webview/webview_translate.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.productrecommend.FindSimilarProductActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/findSimilarProduct.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/findSimilarProduct.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.Transparent" android:name="com.aliexpress.module.shippingmethod.ShippingActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/shipping.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/shipping.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.bundlesale.BundleDetailActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.aliexpress.com" android:pathPattern="/product/package_sale.html"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/product/package_sale.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.PicView" android:name="com.aliexpress.module.picview.PicViewActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/pic_view.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/pic_view.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.picview.SkuPicViewActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/sku_pic_view.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/sku_pic_view.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.share.service.contact.IContactService" android:value="com.aliexpress.module.share.service.contact.ContactServiceImpl"/>
+        <activity android:theme="@style/AppTheme.WithNavDrawer" android:name="com.aliexpress.module.view.im.ImConversationListActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustResize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/buyerMsgList.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.view.im.ImChatSettingsActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.module.view.im.ImConversationDetailActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/app/conversation_detail.html"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/chat_page"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.view.im.ImChooseProductActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/message/chooseproduct.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.messageboxsdk.MbSystemMsgListActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/notification_listv3.html"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.aliexpress.module.imsdk.agoo.ImAccsService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.aliexpress.module.imsdk.agoo.ImAgooService" android:exported="true">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+                <action android:name="com.alibaba.aliexpresshd.intent.action.AGOO_RECEIVER"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.aliexpress.module.imsdk.agoo.ImAgooReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.aliexpress.module.imsdk.agoo.ImAgooReceiver.receive_agoo_msg"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.aliexpress.module.messageboxsdk.MessageBoxPushClickReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.aliexpresshd.intent.action.messagebox_push_click"/>
+                <action android:name="com.alibaba.aliexpresshd.dev.intent.action.messagebox_push_click"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.aliexpress.module.message.ThirdNotificationClickMessageReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.aliexpresshd.intent.action.message_third_notification_push_click"/>
+                <action android:name="com.alibaba.aliexpresshd.dev.intent.action.message_third_notification_push_click"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.aliexpress.module.imsdk.agoo.ImAgooNotifyReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.aliexpress.module.imsdk.agoo.ImAgooNotifyReceiver.click_agoo_push"/>
+                <action android:name="com.aliexpress.module.imsdk.agoo.ImAgooNotifyReceiver.dismiss_agoo_push"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.lazada.msg.ui.notification.PushClickReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.aliexpresshd.intent.action.msg_push_click"/>
+                <action android:name="com.alibaba.aliexpresshd.dev.intent.action.msg_push_click"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.lazada.android.intent.action.msg_push_click"/>
+                <action android:name="com.lazada.android.dev.intent.action.msg_push_click"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.aliexpress.module.imsdk.agoo.AgooForIMService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.icbu.app.aliexpress.seller.intent.action.AGOO_RECEIVER"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="$classPath:com.aliexpress.module.message.service.IMessageService" android:value="$classPath:com.aliexpress.module.message.service.MessageServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.framework.inject.message.IMessageDIService" android:value="$classPath:com.aliexpress.module.message.service.MessageDIServiceImpl"/>
+        <activity android:name="com.aliexpress.component.photopicker.PhotoPickerActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <activity android:name="com.aliexpress.component.photopicker.crop.CropActivity"/>
+        <activity android:theme="@style/ShippingAddressSelectActivityTheme.Transparent" android:name="com.aliexpress.component.countrypicker.ShippingAddressSelectActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/ShippingAddressSelectActivityTheme.Transparent" android:name="com.aliexpress.component.countrypickerv2.ShippingAddressSelectV2Activity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/SelectCountryActivityTheme.Transparent" android:name="com.aliexpress.component.countrypicker.SelectCountryActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/SelectCountryActivityTheme.Transparent" android:name="com.aliexpress.component.countrypicker.ProvinceCitySelectActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.component.marketing.NewcomerCouponActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/newcomer_coupon.htm"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/newcomer_coupon.htm"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.component.marketing.service.IMarketingService" android:value="com.aliexpress.component.marketing.service.MarketingServiceImpl"/>
+        <activity android:name="com.aliexpress.module.feedback.FeedbackActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/getSiteProductEvaluationPwa.htm"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/getSiteProductEvaluationPwa.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.qa.MyQuestionTabActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/question/questionTab.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/question/questionTab.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.qa.ProductQuestionActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/question/qaIndex.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/question/qaIndex.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.qa.QuestionDetailActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/question/questionDetail.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/question/questionDetail.html"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="$classPath:com.aliexpress.module.qa.service.IQAService" android:value="com.aliexpress.module.qa.provider.QAServiceImpl"/>
+        <meta-data android:name="$classPath:com.aliexpress.module.task.service.ITaskCenterService" android:value="com.aliexpress.module.task.service.ITaskCenterServiceImpl"/>
+        <activity android:name="com.aliexpress.ugc.publish.ui.FlowControlActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com"/>
+                <data android:host="*.aliexpress.ru"/>
+                <data android:pathPattern="/ugc/flowcontrol.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.ugc.features.comment.MyCommentActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.ugc.features.follow.FollowListActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.aliexpress.ugc.features.like.activity.LikeListActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.features.comment.CommentActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.features.block.BlockListActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.features.editpicks.view.activity.UGCBloggerPicksHomeActivity" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:name="com.aliexpress.ugc.features.editpicks.view.activity.UGCBloggerPicksHotThemeActivity" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:name="com.aliexpress.ugc.features.editpicks.view.activity.UGCBloggerPicksFanListActivity" android:configChanges="orientation|screenLayout|screenSize"/>
+        <activity android:theme="@style/UgcAETheme.Transparent" android:name="com.aliexpress.ugc.features.youtubevideo.UGCYouTubePlayerActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme.TransparentStatusBar" android:name="com.aliexpress.ugc.features.operation.happyfriday.view.HappyFridayActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.features.product.ProductViewerActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme.Transparent" android:name="com.aliexpress.ugc.features.product.view.UGCShoppingGuideProductListActivity" android:exported="true" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/mCommentActivityTheme.Transparent" android:name="com.aliexpress.ugc.features.comment.CommentDialogActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ugc.aaf.base.app.BaseUgcActivity"/>
+        </activity>
+        <activity android:theme="@style/UgcAETheme.Transparent" android:name="com.aliexpress.ugc.features.post.view.activity.LivePostEntranceActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.components.modules.report.ReportActivity"/>
+        <activity android:theme="@style/UgcAETheme" android:name="com.aliexpress.ugc.components.modules.report.ReportConditionActivity"/>
+        <service android:name="com.ugc.aaf.upload.UploadIntentService" android:exported="false"/>
+        <activity android:theme="@style/AppTheme.WithNavDrawer" android:name="com.aliexpress.module.mywallet.MyWalletActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/my_wallet.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/my_wallet.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.mytrace.RecentlyViewedActivity" android:exported="false" android:screenOrientation="user" android:configChanges="keyboardHidden|navigation|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/recently_viewed.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/recently_viewed.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.mytrace.RecentlyViewSwitchActivity" android:exported="false" android:screenOrientation="user" android:configChanges="keyboardHidden|navigation|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/recently_viewed_switch.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/recently_viewed_switch.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.membercenter.view.MemberCenterActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="*.aliexpress.com" android:pathPattern="/vip.htm"/>
+                <data android:scheme="https" android:host="*.aliexpress.ru" android:pathPattern="/vip.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.membercenter.view.MemberPointDetailActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/member_point_detail.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/member_point_detail.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.module.membercenter.view.MemberPrivilegeActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="m.aliexpress.com" android:pathPattern="/app/member_privilege.html"/>
+                <data android:scheme="https" android:host="m.aliexpress.ru" android:pathPattern="/app/member_privilege.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aliexpress.component.photopickerv2.activity.preview.MultiImagePreviewActivity" android:multiprocess="true" android:screenOrientation="portrait"/>
+        <activity android:name="com.aliexpress.component.photopickerv2.activity.PhotoPickerHomeActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name="com.aliexpress.component.photopickerv2.activity.multi.MultiImagePickerActivity" android:multiprocess="true" android:screenOrientation="portrait"/>
+        <provider android:name="com.aliexpress.component.photopickerv2.utils.PickerFileProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.picker.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/picker_file_paths"/>
+        </provider>
+        <service android:name="com.taobao.orange.service.OrangeApiService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.orange.service.OrangeApiService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.taobao.orange.accssupport.OrangeAccsService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.taobao.orange.receiver.OrangeReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="android.support.v4.content.FileProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:name="com.lazada.msg.ui.component.translationpanel.TranslationSettingActivity"/>
+        <activity android:theme="@style/Theme.Permission.Transparent" android:name="com.taobao.message.opensdk.permission.PermissionActivity" android:exported="false"/>
+        <activity android:name="com.lazada.msg.ui.component.bottomquickreply.QuickReplyListActivity"/>
+        <activity android:theme="@style/NoTitleTheme" android:name="com.lazada.msg.ui.quickandautoreply.QuickReplyEditActivity"/>
+        <activity android:name="com.lazada.msg.ui.quickandautoreply.QuickReplySettingActivity"/>
+        <activity android:name="com.lazada.msg.ui.quickandautoreply.AutoReplySettingActivity"/>
+        <activity android:name="com.aliexpress.component.safemode.SafeModeActivity" android:launchMode="singleTop"/>
+        <service android:name="com.xiaomi.push.service.XMPushService" android:enabled="true" android:process=":pushservice"/>
+        <service android:name="com.xiaomi.push.service.XMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false" android:process=":pushservice"/>
+        <service android:name="com.xiaomi.mipush.sdk.PushMessageHandler" android:enabled="true" android:exported="true"/>
+        <service android:name="com.xiaomi.mipush.sdk.MessageHandleService" android:enabled="true"/>
+        <receiver android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xiaomi.push.service.receivers.PingReceiver" android:exported="false" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.android.agoo.xiaomi.MiPushBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:enabled="false" android:exported="false" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/Theme.PlayCore.Transparent" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:enabled="false" android:exported="false" android:stateNotNeeded="true"/>
+        <service android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService" android:enabled="false" android:exported="true"/>
+        <activity android:name="com.aliexpress.sky.user.ui.SkySnsBindActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/SkyUserTransparentActivityTheme" android:name="com.aliexpress.sky.user.ui.SkyShellActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustResize"/>
+        <service android:name="com.aliexpress.sky.user.service.SkyAccsService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/TransparentActivityTheme" android:name="com.alibaba.sky.auth.snsuser.ui.SnsLoginActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden"/>
+        <service android:name="anetwork.channel.aidl.NetworkService">
+            <intent-filter>
+                <action android:name="anetwork.channel.aidl.IRemoteNetworkGetter"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.taobao.accs.ChannelService" android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.taobao.accs.ChannelService$KernelService" android:exported="false" android:process=":channel"/>
+        <service android:name="com.taobao.accs.data.MsgDistributeService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.taobao.accs.EventReceiver" android:process=":channel">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.taobao.accs.ServiceReceiver" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.COMMAND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.START_FROM_AGOO"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.taobao.accs.internal.AccsJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":channel"/>
+        <activity android:name="com.alibaba.wireless.security.open.middletier.fc.ui.ContainerActivity" android:exported="false">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.felin.feature.customtab.FelinWebViewActivity"/>
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <provider android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.alibaba.aliexpresshd.lifecycle-trojan"/>
+        <service android:name="com.aliexpress.android.globalhouyi.aidlManager.PopAidlService" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.aliexpress.android.globalhouyi.action.aidl.poplayer"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="mtopsdk.extra.antiattack.CheckCodeValidateActivity" android:exported="false" android:taskAffinity="mtopsdk.extra" android:launchMode="singleTask" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="mtopsdk.mtop.antiattack.checkcode.validate.activity_action"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.taobao.highway.receiver.SendEventReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.tmall.android.dai.intent.action.COMPUTE_COMPLETE"/>
+                <data android:scheme="DAI_highway_data"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.taobao.process.interaction.service.RemoteCallService"/>
+        <service android:name="com.taobao.process.interaction.service.RemoteMessageService"/>
+        <service android:name="com.taobao.process.interaction.service.RemoteStubService$RemoteStubService1" android:process=":wml1"/>
+        <service android:name="com.taobao.process.interaction.service.RemoteStubService$RemoteStubService2" android:process=":wml2"/>
+        <service android:name="com.taobao.process.interaction.service.RemoteStubService$RemoteStubService3" android:process=":wml3"/>
+        <service android:name="com.taobao.process.interaction.service.RemoteStubService$RemoteStubService4" android:process=":wml4"/>
+        <service android:name="com.taobao.process.interaction.service.RemoteStubService$RemoteStubService5" android:process=":wml5"/>
+        <receiver android:name="com.taobao.android.jarviswe.receiver.DAILaunchedReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.tmall.android.dai.intent.action.INITIALIZE_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name="com.taobao.android.searchbaseframe.chitu.ChituPanelActivity" android:exported="false" android:screenOrientation="portrait" android:windowNoTitle="true"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.taobao.android.preview.DXTemplatePreviewActivity" android:exported="false" android:launchMode="singleTop" android:screenOrientation="portrait" android:configChanges="locale|keyboardHidden|orientation|layoutDirection"/>
+        <activity android:theme="@style/AuthActivityTheme" android:name="com.alibaba.snsauth.user.ui.SnsAuthActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <receiver android:name="com.taobao.message.ripple.channel.MessagePushReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.message.ripple.intent.action.PUSH_RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.taobao.message.ripple.channel.MessageSyncReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.message.ripple.intent.action.SYNC_RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:exported="false" android:excludeFromRecents="true"/>
+        <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:exported="true"/>
+        <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <service android:name="com.alibaba.analytics.AnalyticsService" android:exported="false" android:process=":channel"/>
+        <service android:name="com.taobao.taolive.FaceDetectorService" android:exported="false">
+            <intent-filter>
+                <action android:name="FaceDetectorService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.edge.pcdn.PcdnLiveService" android:exported="false" android:process=":PcdnLiveService"/>
+        <service android:name="com.taobao.avplayer.service.DWH5PluginService" android:exported="false">
+            <intent-filter>
+                <action android:name="InteractVideoWVPlugin"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.taobao.avplayer.service.DWWXComponentService" android:exported="false">
+            <intent-filter>
+                <action android:name="videoplus"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.alibaba.android.bindingx.plugin.weex.WXBindingXModuleService" android:exported="false">
+            <intent-filter>
+                <action android:name="bindingx"/>
+                <action android:name="binding"/>
+                <action android:name="expressionBinding"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.evernote.android.job.v21.PlatformJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <service android:name="com.evernote.android.job.v14.PlatformAlarmService" android:exported="false"/>
+        <receiver android:name="com.evernote.android.job.v14.PlatformAlarmReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.v14.RUN_JOB"/>
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.evernote.android.job.gcm.PlatformGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" android:enabled="false" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.alibaba.snsauth.user.ins.sdk.ui.InsOpenAuthActivity"/>
+        <activity android:name="com.twitter.sdk.android.core.identity.OAuthActivity" android:exported="false" android:excludeFromRecents="true" android:configChanges="orientation|screenSize"/>
+        <meta-data android:name="aia-compat-api-min-version" android:value="1"/>
+        <meta-data android:name="org.chromium.content.browser.NUM_SANDBOXED_SERVICES" android:value="1"/>
+        <meta-data android:name="org.chromium.content.browser.SANDBOXED_SERVICES_NAME" android:value="com.taobao.uc.service.SandboxedProcessService"/>
+        <service android:name="com.taobao.uc.service.SandboxedProcessService0" android:process=":sandboxed_process0" android:isolatedProcess="true"/>
+        <meta-data android:name="org.chromium.content.browser.SANDBOXED_PRIVILEGED_SERVICES_NAME" android:value="com.taobao.uc.service.SandboxedPrivilegedProcessService"/>
+        <service android:name="com.taobao.uc.service.SandboxedPrivilegedProcessService0" android:process=":sandboxed_privilege_process0" android:isolatedProcess="false"/>
+        <meta-data android:name="org.chromium.content.browser.NUM_GPU_SERVICES" android:value="1"/>
+        <meta-data android:name="org.chromium.content.browser.GPU_SERVICES_NAME" android:value="com.taobao.uc.service.GpuProcessService"/>
+        <service android:name="com.taobao.uc.service.GpuProcessService0" android:process=":gpu_process" android:isolatedProcess="false"/>
+        <receiver android:name="com.alibaba.global.message.ripple.push.MessagePushReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.aliexpresshd.intent.action.MESSAGEBOX_PUSH_RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.taobao.tao.powermsg.PowerMsgReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="TAOBAO_DELAY_START_POWMSG"/>
+                <action android:name="com.taobao.tao.messagkit.receive"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.taobao.tao.powermsg.outter.PowerMsg4WXService" android:exported="false">
+            <intent-filter>
+                <action android:name="powermsg"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.container.TriverMainActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen.Translucent" android:name="com.alibaba.triver.container.TriverMainActivity$TriverMainActivityTrans" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <service android:name="com.alibaba.triver.ipc.server.IpcMsgServerService"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.container.TriverSubActivity" android:process=":wml1" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity1" android:process=":wml1" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen.Translucent" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity1Trans" android:process=":wml1" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <service android:name="com.alibaba.triver.ipc.client.IpcMsgClientService$IpcMsgClientService1" android:exported="false" android:process=":wml1"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity2" android:process=":wml2" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen.Translucent" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity2Trans" android:process=":wml2" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <service android:name="com.alibaba.triver.ipc.client.IpcMsgClientService$IpcMsgClientService2" android:exported="false" android:process=":wml2"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity3" android:process=":wml3" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen.Translucent" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity3Trans" android:process=":wml3" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <service android:name="com.alibaba.triver.ipc.client.IpcMsgClientService$IpcMsgClientService3" android:exported="false" android:process=":wml3"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity4" android:process=":wml4" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen.Translucent" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity4Trans" android:process=":wml4" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <service android:name="com.alibaba.triver.ipc.client.IpcMsgClientService$IpcMsgClientService4" android:exported="false" android:process=":wml4"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity5" android:process=":wml5" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen.Translucent" android:name="com.alibaba.triver.container.TriverSubActivity$TriverSubActivity5Trans" android:process=":wml5" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" android:hardwareAccelerated="true"/>
+        <service android:name="com.alibaba.triver.ipc.client.IpcMsgClientService$IpcMsgClientService5" android:exported="false" android:process=":wml5"/>
+        <activity android:theme="@style/Theme.Triver.Activity.FullScreen" android:name="com.alibaba.triver.center.test.TriverDebugActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"/>
+        <activity android:theme="@style/Theme.Triver.Activity.Translucent" android:name="com.alibaba.triver.container.TriverProxyActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.alibaba.triver.triver_render.view.video.video.RecordVideoActivity"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.alibaba.triver.triver_render.view.video.album.SelectVideoActivity"/>
+        <activity android:theme="@style/Theme.AppCompat.Light" android:name="com.alibaba.triver.alibaba.api.openlocation.AlibabaOpenLocationActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.alibaba.triver.embed.video.album.SelectVideoActivity"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.alibaba.triver.embed.video.video.RecordVideoActivity"/>
+        <service android:name="com.alibaba.ariver.commonability.device.jsapi.nfc.service.TinyAppHostApduService" android:permission="android.permission.BIND_NFC_SERVICE" android:exported="true">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.cardemulation.host_apdu_service" android:resource="@xml/tiny_app_apdu_service"/>
+        </service>
+        <activity android:theme="@style/Theme.Windmill.Translucent" android:name="com.taobao.android.miniimage.ui.SimpleImagePreviewActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustPan" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.taobao.android.minivideo.video.RecordVideoActivity"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.taobao.android.minivideo.album.SelectVideoActivity"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.taobao.android.minivideo.video.VideoEditActivity" android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.miniapp.video.videoactivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="mycategory"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AliMember.Base.AppTheme" android:name="com.ali.user.open.ucc.webview.UccWebViewActivity" android:launchMode="singleTop" android:screenOrientation="portrait">
+            <meta-data android:name="com.alibaba-inc.check.login.status.resume" android:value="0"/>
+        </activity>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.ali.user.open.ucc.ui.UccActivity" android:configChanges="keyboardHidden|navigation|orientation">
+            <meta-data android:name="com.alibaba-inc.check.login.status.resume" android:value="0"/>
+        </activity>
+        <activity android:theme="@style/AliMember.Base.AppTheme" android:name="com.ali.user.open.core.webview.BaseWebViewActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.alibaba.ariver.ipc.RemoteCallService"/>
+        <service android:name="com.taobao.zcache.ZCacheServer"/>
+        <activity android:name="com.vk.sdk.VKOpenAuthActivity"/>
+        <activity android:theme="@style/VK.Transparent" android:label="ServiceActivity" android:name="com.vk.sdk.VKServiceActivity"/>
+        <activity android:name="ru.ok.android.sdk.OkAuthActivity" android:launchMode="singleTop" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="okauth" android:host="ok125497344"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.snsauth.user.tiktok.TikTokEntryActivity" android:exported="true" android:launchMode="singleInstance"/>
+        <provider android:name="com.facebook.internal.FacebookInitProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.FacebookInitProvider"/>
+        <receiver android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.facebook.CampaignTrackingReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.bytedance.sdk.open.aweme.authorize.ui.TikTokWebAuthorizeActivity" android:screenOrientation="behind"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.bytedance.sdk.open.aweme.authorize.ui.AwemeWebAuthorizeActivity" android:screenOrientation="behind"/>
+        <activity android:theme="@style/Transparent" android:name="ru.mail.auth.sdk.MailRuSdkServiceActivity" android:launchMode="singleTask" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@style/Transparent" android:name="ru.mail.auth.sdk.RedirectReceiverActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.alibaba.snsauth.user.mailru" android:host="oauth2redirect"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.huawei.hms.client.appid" android:value="appid=100376431"/>
+        <provider android:name="com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.updateSdk.fileProvider" android:grantUriPermissions="true"/>
+        <activity android:theme="@style/Theme.Translucent" android:name="com.huawei.android.hms.agent.hwid.HMSSignInAgentActivity" android:exported="false" android:excludeFromRecents="true" android:configChanges="locale|orientation|screenSize|layoutDirection|fontScale" android:hardwareAccelerated="true">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity android:theme="@style/Theme.Translucent" android:name="com.huawei.android.hms.agent.common.HMSAgentActivity" android:exported="false" android:excludeFromRecents="true" android:configChanges="locale|orientation|screenSize|layoutDirection|fontScale" android:hardwareAccelerated="true">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity android:theme="@style/Theme.Translucent" android:name="com.huawei.hms.activity.BridgeActivity" android:exported="false" android:excludeFromRecents="true" android:configChanges="locale|orientation|screenSize|layoutDirection|fontScale" android:hardwareAccelerated="true">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity android:theme="@style/upsdkDlDialog" android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity" android:exported="false" android:configChanges="orientation|screenSize">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar"/>
+        </activity>
+        <activity android:theme="@style/upsdkDlDialog" android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.hms.update.provider" android:grantUriPermissions="true"/>
+        <provider android:name="com.huawei.hms.support.api.push.PushProvider" android:permission="com.alibaba.aliexpresshd.permission.PUSH_PROVIDER" android:readPermission="com.alibaba.aliexpresshd.permission.PUSH_PROVIDER" android:writePermission="com.alibaba.aliexpresshd.permission.PUSH_WRITE_PROVIDER" android:exported="true" android:authorities="com.alibaba.aliexpresshd.huawei.push.provider"/>
+        <service android:name="com.huawei.updatesdk.service.deamon.download.DownloadService" android:exported="false"/>
+        <receiver android:name="org.android.agoo.huawei.HuaweiPushReceiver" android:permission="com.alibaba.aliexpresshd.permission.PROCESS_PUSH_MSG">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
+                <action android:name="com.huawei.android.push.intent.RECEIVE"/>
+                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/AppTheme.TransparentStatusBar" android:name="com.alibaba.aliexpress.live.view.LiveRecordActivity" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="live.aliexpress.com" android:path="/record.htm"/>
+                <data android:scheme="https" android:host="live.aliexpress.ru" android:path="/record.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.TransparentStatusBar" android:name="com.alibaba.aliexpress.live.view.LiveStreamNewRecordActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:name="com.alibaba.aliexpress.live.view.LiveStreamRoomManageActivity" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/livebackend/createRoom.htm"/>
+                <data android:host="live.aliexpress.com" android:pathPattern="/livebackend/liveRoomList.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/livebackend/createRoom.htm"/>
+                <data android:host="live.aliexpress.ru" android:pathPattern="/livebackend/liveRoomList.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.live.view.LiveStreamProductManageActivity" android:configChanges="orientation|screenSize"/>
+        <service android:name="com.taobao.artc.accs.ArtcAccsService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/AppTheme" android:name="com.alibaba.aliexpress.wallet.WalletActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/wallet.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/wallet.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.alibaba.aliexpress.wallet.WalletTransactionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/wallet/transaction.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/wallet/transaction.html"/>
+                <data android:host="m.aliexpress.com" android:pathPattern="/app/wallet/transaction/detail.html"/>
+                <data android:host="m.aliexpress.ru" android:pathPattern="/app/wallet/transaction/detail.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.alibaba.aliexpress.wallet.AeCashBackHistoryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com"/>
+                <data android:host="*.aliexpress.ru"/>
+                <data android:pathPattern="/app/wallet/cashback_history.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme" android:name="com.alibaba.aliexpress.wallet.WalletCashbackActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com"/>
+                <data android:host="*.aliexpress.ru"/>
+                <data android:pathPattern="/app/wallet/cashback.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.wallet.AeBindPhoneActivity" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/wallet/bindPhone.html"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/wallet/bindPhone.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.White" android:name="com.alibaba.aliexpress.wallet.AeOpenBalanceActivity" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/wallet/openBalance.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/wallet/openBalance.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.Wallet_Settings" android:name="com.alibaba.aliexpress.wallet.AeSettingsActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com"/>
+                <data android:host="*.aliexpress.ru"/>
+                <data android:pathPattern="/wallet/settings.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.wallet.AeAccountInfoActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/wallet/accountInfo.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/wallet/accountInfo.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.wallet.AeCardsActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/wallet/cards.htm"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/wallet/cards.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.alibaba.aliexpress.wallet.AeBindCardActivity" android:screenOrientation="portrait">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com" android:pathPattern="/cards/bindCard.html"/>
+                <data android:host="*.aliexpress.ru" android:pathPattern="/cards/bindCard.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.TransparentDisableDim" android:name="com.alibaba.aliexpress.wallet.EuWalletSchemeBridgeActivity">
+            <intent-filter android:priority="-100" android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.NAV.ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.aliexpress.com"/>
+                <data android:host="*.aliexpress.ru"/>
+                <data android:pathPattern="/app/wallet/.*.html"/>
+                <data android:pathPattern="/app/wallet/.*.htm"/>
+                <data android:pathPattern="/wallet/.*.html"/>
+                <data android:pathPattern="/wallet/.*.htm"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/EUWallet.Style.Activity.Dynamic" android:name="com.iap.eu.android.wallet.framework.components.dynamic.page.WalletDynamicActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/EUWallet.Style.Activity" android:name="com.iap.eu.android.wallet.framework.components.dynamic.page.WalletRouterDynamicActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/EUWallet.Style.Activity" android:name="com.iap.eu.android.wallet.framework.components.dynamic.page.WalletErrorActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/EUWallet.Style.ActionBarNotOverlayActivity" android:name="com.iap.eu.android.wallet.biz.cashier.card.activity.AddNewCardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <provider android:name="com.iap.eu.android.wallet.framework.common.WalletFileProvider" android:exported="false" android:authorities="com.alibaba.aliexpresshd.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/euw_file_paths"/>
+        </provider>
+        <activity android:theme="@style/EUVerify.Style.Activity" android:name="com.alipay.mobile.verifyidentity.business.ueotp.activity.EUPinActivity" android:multiprocess="true" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/EUVerify.Style.Activity" android:name="com.alipay.mobile.verifyidentity.business.ueotp.activity.EUOtpActivity" android:multiprocess="true" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:theme="@style/EUVerify.Style.Activity" android:name="com.alipay.mobile.verifyidentity.business.ueotp.activity.EUCardNumOrDataActivity" android:multiprocess="true" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:theme="@style/EUVerify.Style.Activity" android:name="com.alipay.mobile.verifyidentity.business.ueotp.activity.MenuActivity" android:multiprocess="true" android:screenOrientation="portrait"/>
+        <activity android:name="com.iap.ac.android.container.activity.ACContainerActivity" android:configChanges="keyboardHidden|navigation|orientation|screenSize"/>
+        <activity android:name="com.iap.ac.android.container.activity.H5NetworkCheckActivity"/>
+        <activity android:theme="@style/Theme.NoTitleBar" android:name="com.zoloz.android.phone.zdoc.activities.FalconCardNativeActivityNew" android:screenOrientation="portrait" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <uses-library android:name="org.com.ifaa.kmfp.android.manager.permissions" android:required="false"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.alipay.mobile.verifyidentity.framework.QueryActivity"/>
+        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.alipay.mobile.verifyidentity.framework.MenuActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.alipay.mobile.verifyidentity.business.security.activity.SecurityListActivity" android:multiprocess="true" android:screenOrientation="portrait"/>
+        <activity android:name="com.alipay.mobile.verifyidentity.business.finger.activity.FingerSettingActivity" android:multiprocess="true" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.alipay.mobile.verifyidentity.business.finger.activity.FingerActivity" android:multiprocess="true"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.alipay.mobile.verifyidentity.business.finger.activity.FingerAloneActivity" android:multiprocess="true"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.alipay.mobile.verifyidentity.business.finger.activity.TransparentFingerSettingActivity" android:multiprocess="true"/>
+        <activity android:name="com.alipay.mobile.verifyidentity.business.finger.activity.TESTActivity" android:windowSoftInputMode="stateHidden"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base,liveStreaming,wallet"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:value="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

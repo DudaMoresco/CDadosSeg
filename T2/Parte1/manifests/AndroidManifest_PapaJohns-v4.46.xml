@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2320" android:versionName="4.46.15992" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.papajohns.android" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="com.papajohns.android.app.PapaJohnsApp" android:allowBackup="false" android:supportsRtl="false" android:fullBackupContent="true" android:usesCleartextTraffic="false" android:networkSecurityConfig="@xml/network_security_config" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.welcome.WelcomeActivity" android:launchMode="singleTop" android:screenOrientation="portrait" android:configChanges="keyboardHidden" android:resizeableActivity="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="papastickers"/>
+                <data android:host="sticker"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.authentication.password.reset.CompletePasswordResetActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" android:resizeableActivity="false">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.papajohns.com" android:pathPrefix="/order/passwordreset"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.papajohns.android.bitly.BitlyActivity" android:screenOrientation="portrait" android:resizeableActivity="false">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="*pj.pizza"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/TransparentActivity" android:name="com.papajohns.android.checkout.confirmation.papatrack.deeplink.PapaTrackPostTipDeepLinkActivity" android:taskAffinity="" android:excludeFromRecents="true" android:resizeableActivity="false">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="*.papajohns.com" android:pathPrefix="/postdelivery"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="*.papajohns.com" android:pathPrefix="/papa-track"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/TransparentActivity" android:name="com.papajohns.android.links.SpecialDeepLinkActivity" android:taskAffinity="" android:excludeFromRecents="true" android:resizeableActivity="false">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http" android:host="click.papajohns-specials.com"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/TransparentActivity" android:name="com.papajohns.android.menu.MenuDeepLinkActivity" android:taskAffinity="" android:excludeFromRecents="true" android:resizeableActivity="false">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.papajohns.com" android:path="/home"/>
+                <data android:scheme="https" android:host="www.papajohns.com" android:path="/home/"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.papajohns.com" android:pathPattern="/order.*"/>
+                <data android:scheme="https" android:host="www.papajohns.com" android:pathPattern="/order/apply-signup-coupon/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.papajohns.com" android:path=""/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.menu.MenuActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.menu.product.detail.ProductGroupDetailActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.menu.pizzabuilder.PizzaBuilderActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.menu.pizzabuilder.PizzaBuilderCustomizationActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteBackground" android:name="com.papajohns.android.location.storesearch.StoreSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize" android:resizeableActivity="false"/>
+        <activity android:theme="@style/GreenTheme" android:name="com.papajohns.android.loyalty.offers.OffersActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/GreenTheme" android:name="com.papajohns.android.loyalty.earlyam.EarlyAccessActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:name="com.papajohns.android.checkout.CheckoutActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.checkout.confirmation.CheckoutConfirmationActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.deal.DealBuilderActivity" android:launchMode="singleTop" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.deal.DealProductGroupActivity" android:launchMode="singleTop" android:screenOrientation="portrait" android:parentActivityName="com.papajohns.android.deal.DealBuilderActivity" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.authentication.SignInActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.authentication.signup.SignupActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateVisible|adjustResize" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.cart.CartActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|adjustResize" android:parentActivityName="com.papajohns.android.menu.MenuActivity" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:name="com.papajohns.android.orderdetail.OrderDetailActivity" android:screenOrientation="portrait" android:parentActivityName="com.papajohns.android.menu.MenuActivity" android:resizeableActivity="false"/>
+        <activity android:name="com.papajohns.android.checkout.duplicate.DuplicateOrderActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.authentication.password.reset.ResetPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" android:parentActivityName="com.papajohns.android.authentication.SignInActivity" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:label="@string/add_payment_method_title" android:name="com.papajohns.android.account.payment.AddPaymentMethodActivity" android:screenOrientation="portrait" android:parentActivityName="com.papajohns.android.account.AccountFragment" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:label="@string/update_profile_title" android:name="com.papajohns.android.account.contact.profile.UpdateProfileActivity" android:screenOrientation="portrait" android:parentActivityName="com.papajohns.android.account.AccountFragment" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:label="@string/update_email_address_title" android:name="com.papajohns.android.account.contact.email.UpdateEmailActivity" android:screenOrientation="portrait" android:parentActivityName="com.papajohns.android.account.AccountFragment" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:label="@string/update_password_title" android:name="com.papajohns.android.account.contact.password.UpdatePasswordActivity" android:screenOrientation="portrait" android:parentActivityName="com.papajohns.android.account.AccountFragment" android:resizeableActivity="false"/>
+        <activity android:name="com.papajohns.android.terms.TermsActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/TranslucentActivity.NoAnimations" android:name="com.papajohns.android.notifications.PushNotificationTriageActivity" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.web.WebViewActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.inbox.InboxActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/TranslucentActivity.NoAnimations.PapaGreenTheme" android:name="com.papajohns.android.favorites.creation.AddFavoriteActivity"/>
+        <activity android:name="com.papajohns.android.checkout.payment.credit.CreditCardEntryActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:name="com.papajohns.android.checkout.payment.gift.GiftCardEntryActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:name="com.papajohns.android.checkout.payment.credit.StoredCreditCardActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/TranslucentActivity.NoAnimations" android:name="com.papajohns.android.checkout.payment.google.PayWithGoogleHostActivity" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:name="com.papajohns.android.loyalty.redeem.RedeemRewardsCodeEntryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|stateVisible|stateAlwaysVisible|adjustResize" android:resizeableActivity="false"/>
+        <activity android:name="com.papajohns.android.loyalty.tutorial.LoyaltyTutorialActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteBackground" android:name="com.papajohns.android.location.storesearch.delivery.SearchDeliveryAddressActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteAccent" android:name="com.papajohns.android.account.contact.ContactInfoActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.location.storesearch.carryout.ChooseStoreSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreen" android:name="com.papajohns.android.location.storesearch.carryout.details.CarryoutLocationsDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteBackground" android:name="com.papajohns.android.location.storesearch.delivery.campus.suggest.SuggestCampusActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenWhiteBackground" android:name="com.papajohns.android.outage.ui.OutageActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <activity android:theme="@style/BaseThemeGreenMaterialComponents" android:name="com.papajohns.android.checkout.carryoutoptions.CarryoutOptionsActivity" android:screenOrientation="portrait" android:resizeableActivity="false"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAvgDOCAu6DDmJa9AFkkBvtN_m-nWWNE4Y"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <receiver android:name="com.papajohns.android.analytics.ReferralBroadcastReceiver" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.papajohns.android.notifications.PushNotificationService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.papajohns.android.notifications.OrderAlertService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <service android:name="com.papajohns.android.stickers.StickerIndexingService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"/>
+        <service android:name="com.leanplum.LeanplumPushFirebaseMessagingService" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.leanplum.LeanplumPushReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.leanplum.LeanplumPushFirebaseMessagingService"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.leanplum.ReceiveTransitionsIntentService"/>
+        <receiver android:name="com.leanplum.LeanplumJobStartReceiver"/>
+        <service android:name="com.leanplum.LeanplumPushRegistrationService"/>
+        <service android:name="com.leanplum.LeanplumLocalPushListenerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:theme="@style/com_facebook_activity_theme" android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="fbconnect" android:host="cct.com.papajohns.android"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
+        <provider android:name="com.google.firebase.perf.provider.FirebasePerfProvider" android:exported="false" android:authorities="com.papajohns.android.firebaseperfprovider" android:initOrder="101"/>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.tagmanager.TagManagerService" android:enabled="true" android:exported="false"/>
+        <activity android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:exported="true" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.papajohns.android"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.papajohns.android.firebaseinitprovider" android:initOrder="100" android:directBootAware="true"/>
+        <provider android:name="com.facebook.internal.FacebookInitProvider" android:exported="false" android:authorities="com.papajohns.android.FacebookInitProvider"/>
+        <receiver android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <activity android:theme="@style/FragmentScenarioEmptyFragmentActivityTheme" android:name="androidx.fragment.app.testing.FragmentScenario$EmptyFragmentActivity" android:exported="true" android:taskAffinity="" android:multiprocess="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <activity android:theme="@style/Theme.Translucent" android:name="com.google.android.gms.ads.AdActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:theme="@style/InstrumentationActivityInvokerBootstrapActivityTheme" android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/InstrumentationActivityInvokerEmptyActivityTheme" android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/InstrumentationActivityInvokerFloatingActivityTheme" android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Light.NoTitleBar" android:name="com.visa.checkout.CheckoutWebViewActivity" android:screenOrientation="portrait" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@style/Theme.Light.NoTitleBar" android:name="com.visa.checkout.r" android:screenOrientation="portrait" android:configChanges="orientation|screenSize"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1029020" android:versionName="10.29" android:targetSandboxVersion="2" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.citymapper.app.release" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="29"/>
+    <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
+    <uses-permission-sdk-23 android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <application android:theme="@style/AppTheme" android:label="@string/cm_app_name" android:icon="@mipmap/ic_launcher" android:name="com.citymapper.app.CitymapperApplication" android:backupAgent="com.citymapper.app.backup.CitymapperBackupAgent" android:allowBackup="true" android:logo="@android:color/transparent" android:supportsRtl="false" android:fullBackupOnly="true" android:extractNativeLibs="false" android:fullBackupContent="@xml/backupscheme" android:networkSecurityConfig="@xml/network_security_config" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <activity android:theme="@style/AppDialogTheme" android:name="com.citymapper.app.incoming.URLHandlerActivity" android:screenOrientation="behind" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:noHistory="true">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="verify.citymapper.com"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="citymapper"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="citymapper.com"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/maps_api_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.UseIpAddressForGeolocation" android:value="false"/>
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+        <activity android:theme="@style/EntryTheme" android:label="@string/cm_app_name" android:name="com.citymapper.app.EntryPointActivity" android:exported="true" android:screenOrientation="sensorPortrait"/>
+        <activity-alias android:icon="@mipmap/ic_launcher" android:name="com.citymapper.app.MainActivity" android:enabled="true" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_early_bird" android:name="com.citymapper.app.MainActivity_EarlyBird" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_club" android:name="com.citymapper.app.MainActivity_Club" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_club_plus" android:name="com.citymapper.app.MainActivity_ClubPlus" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_smile" android:name="com.citymapper.app.MainActivity_Smile" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_dude" android:name="com.citymapper.app.MainActivity_Dude" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_dudette" android:name="com.citymapper.app.MainActivity_Dudette" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_bear" android:name="com.citymapper.app.MainActivity_Bear" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_gobot" android:name="com.citymapper.app.MainActivity_Gobot" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_not_green" android:name="com.citymapper.app.MainActivity_NotGreen" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_not_green_2" android:name="com.citymapper.app.MainActivity_NotGreen2" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_not_green_3" android:name="com.citymapper.app.MainActivity_NotGreen3" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_unbreakable" android:name="com.citymapper.app.MainActivity_Unbreakable" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_sustainable" android:name="com.citymapper.app.MainActivity_Sustainable" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_bling" android:name="com.citymapper.app.MainActivity_Bling" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_rose_bling" android:name="com.citymapper.app.MainActivity_RoseBling" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_goth" android:name="com.citymapper.app.MainActivity_Goth" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_white" android:name="com.citymapper.app.MainActivity_White" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_rainbow" android:name="com.citymapper.app.MainActivity_Rainbow" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_retro" android:name="com.citymapper.app.MainActivity_Retro" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_cm2" android:name="com.citymapper.app.MainActivity_CM2" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_busmapper" android:name="com.citymapper.app.MainActivity_Busmapper" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_jetpack" android:name="com.citymapper.app.MainActivity_Jetpack" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:icon="@mipmap/ic_launcher_superduper" android:name="com.citymapper.app.MainActivity_SuperDuper" android:enabled="false" android:targetActivity="com.citymapper.app.EntryPointActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:theme="@style/HomeTheme" android:name="com.citymapper.app.home.HomeActivity2" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme.DeparturePage" android:name="com.citymapper.app.departure.DockableStationActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/OfflineMapsTheme" android:name="com.citymapper.app.MapResourceViewerActivity" android:screenOrientation="sensor"/>
+        <activity android:theme="@style/AppTheme.Blue.NoActionBar" android:name="com.citymapper.app.line.RouteActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.NoActionBar" android:name="com.citymapper.app.line.RouteViewActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/ride_an_android" android:name="com.citymapper.app.jokemodes.RideAnAndroidActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.NoActionBar" android:name="com.citymapper.app.search.SearchListActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.JourneyDetails" android:name="com.citymapper.app.routing.journeydetails.JourneyDetailsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/HistoryTheme.Transparent" android:name="com.citymapper.app.user.history.ui.TripHistoryPagerActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="com.citymapper.app.SingleFragmentActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.SearchLines.Yellow.Base" android:name="com.citymapper.app.disruption.lines.LinesActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.OnJourney" android:name="com.citymapper.app.routing.onjourney.OnJourneyActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/CitymapperTransparentActivity" android:name="com.citymapper.app.routing.onjourney.rate.RateJourneyActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/AppDialogTheme" android:name="com.citymapper.app.incoming.GoogleMapsIntentActivity" android:screenOrientation="behind" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:path="/"/>
+                <data android:pathPrefix="/maps"/>
+                <data android:host="local.google.com"/>
+                <data android:host="maps.google.ad"/>
+                <data android:host="maps.google.ae"/>
+                <data android:host="maps.google.as"/>
+                <data android:host="maps.google.at"/>
+                <data android:host="maps.google.ba"/>
+                <data android:host="maps.google.be"/>
+                <data android:host="maps.google.bf"/>
+                <data android:host="maps.google.bg"/>
+                <data android:host="maps.google.bi"/>
+                <data android:host="maps.google.bj"/>
+                <data android:host="maps.google.bs"/>
+                <data android:host="maps.google.bt"/>
+                <data android:host="maps.google.ca"/>
+                <data android:host="maps.google.cd"/>
+                <data android:host="maps.google.cf"/>
+                <data android:host="maps.google.cg"/>
+                <data android:host="maps.google.ch"/>
+                <data android:host="maps.google.ci"/>
+                <data android:host="maps.google.cl"/>
+                <data android:host="maps.google.cm"/>
+                <data android:host="maps.google.cn"/>
+                <data android:host="maps.google.co.ao"/>
+                <data android:host="maps.google.co.bw"/>
+                <data android:host="maps.google.co.ck"/>
+                <data android:host="maps.google.co.cr"/>
+                <data android:host="maps.google.co.id"/>
+                <data android:host="maps.google.co.il"/>
+                <data android:host="maps.google.co.in"/>
+                <data android:host="maps.google.co.jp"/>
+                <data android:host="maps.google.co.ke"/>
+                <data android:host="maps.google.co.kr"/>
+                <data android:host="maps.google.co.ls"/>
+                <data android:host="maps.google.co.mz"/>
+                <data android:host="maps.google.co.nz"/>
+                <data android:host="maps.google.co.th"/>
+                <data android:host="maps.google.co.tz"/>
+                <data android:host="maps.google.co.ug"/>
+                <data android:host="maps.google.co.uk"/>
+                <data android:host="maps.google.co.ve"/>
+                <data android:host="maps.google.co.vi"/>
+                <data android:host="maps.google.co.za"/>
+                <data android:host="maps.google.co.zm"/>
+                <data android:host="maps.google.co.zw"/>
+                <data android:host="maps.google.com"/>
+                <data android:host="maps.google.com.ag"/>
+                <data android:host="maps.google.com.ai"/>
+                <data android:host="maps.google.com.ar"/>
+                <data android:host="maps.google.com.au"/>
+                <data android:host="maps.google.com.bd"/>
+                <data android:host="maps.google.com.bh"/>
+                <data android:host="maps.google.com.bn"/>
+                <data android:host="maps.google.com.bo"/>
+                <data android:host="maps.google.com.br"/>
+                <data android:host="maps.google.com.bz"/>
+                <data android:host="maps.google.com.cu"/>
+                <data android:host="maps.google.com.do"/>
+                <data android:host="maps.google.com.ec"/>
+                <data android:host="maps.google.com.eg"/>
+                <data android:host="maps.google.com.et"/>
+                <data android:host="maps.google.com.fj"/>
+                <data android:host="maps.google.com.gh"/>
+                <data android:host="maps.google.com.gi"/>
+                <data android:host="maps.google.com.gt"/>
+                <data android:host="maps.google.com.hk"/>
+                <data android:host="maps.google.com.jm"/>
+                <data android:host="maps.google.com.kh"/>
+                <data android:host="maps.google.com.kw"/>
+                <data android:host="maps.google.com.lb"/>
+                <data android:host="maps.google.com.lv"/>
+                <data android:host="maps.google.com.ly"/>
+                <data android:host="maps.google.com.mt"/>
+                <data android:host="maps.google.com.mx"/>
+                <data android:host="maps.google.com.my"/>
+                <data android:host="maps.google.com.na"/>
+                <data android:host="maps.google.com.ng"/>
+                <data android:host="maps.google.com.ni"/>
+                <data android:host="maps.google.com.np"/>
+                <data android:host="maps.google.com.om"/>
+                <data android:host="maps.google.com.pa"/>
+                <data android:host="maps.google.com.pe"/>
+                <data android:host="maps.google.com.pg"/>
+                <data android:host="maps.google.com.ph"/>
+                <data android:host="maps.google.com.pr"/>
+                <data android:host="maps.google.com.py"/>
+                <data android:host="maps.google.com.qa"/>
+                <data android:host="maps.google.com.sa"/>
+                <data android:host="maps.google.com.sb"/>
+                <data android:host="maps.google.com.sg"/>
+                <data android:host="maps.google.com.sl"/>
+                <data android:host="maps.google.com.sv"/>
+                <data android:host="maps.google.com.tw"/>
+                <data android:host="maps.google.com.ua"/>
+                <data android:host="maps.google.com.uy"/>
+                <data android:host="maps.google.com.vc"/>
+                <data android:host="maps.google.cv"/>
+                <data android:host="maps.google.cz"/>
+                <data android:host="maps.google.de"/>
+                <data android:host="maps.google.dj"/>
+                <data android:host="maps.google.dk"/>
+                <data android:host="maps.google.dm"/>
+                <data android:host="maps.google.dz"/>
+                <data android:host="maps.google.ee"/>
+                <data android:host="maps.google.es"/>
+                <data android:host="maps.google.fi"/>
+                <data android:host="maps.google.fm"/>
+                <data android:host="maps.google.fr"/>
+                <data android:host="maps.google.ga"/>
+                <data android:host="maps.google.ge"/>
+                <data android:host="maps.google.gg"/>
+                <data android:host="maps.google.gl"/>
+                <data android:host="maps.google.gm"/>
+                <data android:host="maps.google.gp"/>
+                <data android:host="maps.google.gr"/>
+                <data android:host="maps.google.gy"/>
+                <data android:host="maps.google.hn"/>
+                <data android:host="maps.google.hr"/>
+                <data android:host="maps.google.ht"/>
+                <data android:host="maps.google.hu"/>
+                <data android:host="maps.google.ie"/>
+                <data android:host="maps.google.im"/>
+                <data android:host="maps.google.iq"/>
+                <data android:host="maps.google.is"/>
+                <data android:host="maps.google.it"/>
+                <data android:host="maps.google.je"/>
+                <data android:host="maps.google.jo"/>
+                <data android:host="maps.google.ki"/>
+                <data android:host="maps.google.la"/>
+                <data android:host="maps.google.li"/>
+                <data android:host="maps.google.lk"/>
+                <data android:host="maps.google.lt"/>
+                <data android:host="maps.google.lu"/>
+                <data android:host="maps.google.lv"/>
+                <data android:host="maps.google.md"/>
+                <data android:host="maps.google.mg"/>
+                <data android:host="maps.google.mk"/>
+                <data android:host="maps.google.ml"/>
+                <data android:host="maps.google.mn"/>
+                <data android:host="maps.google.ms"/>
+                <data android:host="maps.google.mt"/>
+                <data android:host="maps.google.mu"/>
+                <data android:host="maps.google.mv"/>
+                <data android:host="maps.google.mw"/>
+                <data android:host="maps.google.ne"/>
+                <data android:host="maps.google.nf"/>
+                <data android:host="maps.google.nl"/>
+                <data android:host="maps.google.no"/>
+                <data android:host="maps.google.nr"/>
+                <data android:host="maps.google.nu"/>
+                <data android:host="maps.google.pl"/>
+                <data android:host="maps.google.pn"/>
+                <data android:host="maps.google.pt"/>
+                <data android:host="maps.google.ro"/>
+                <data android:host="maps.google.rs"/>
+                <data android:host="maps.google.ru"/>
+                <data android:host="maps.google.rw"/>
+                <data android:host="maps.google.sc"/>
+                <data android:host="maps.google.se"/>
+                <data android:host="maps.google.sh"/>
+                <data android:host="maps.google.si"/>
+                <data android:host="maps.google.sk"/>
+                <data android:host="maps.google.sm"/>
+                <data android:host="maps.google.sn"/>
+                <data android:host="maps.google.so"/>
+                <data android:host="maps.google.st"/>
+                <data android:host="maps.google.td"/>
+                <data android:host="maps.google.tg"/>
+                <data android:host="maps.google.tk"/>
+                <data android:host="maps.google.tl"/>
+                <data android:host="maps.google.tn"/>
+                <data android:host="maps.google.to"/>
+                <data android:host="maps.google.tt"/>
+                <data android:host="maps.google.vg"/>
+                <data android:host="maps.google.vu"/>
+                <data android:host="maps.google.ws"/>
+                <data android:host="mapy.google.pl"/>
+                <data android:host="maps.google.pl"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="goo.gl"/>
+                <data android:pathPrefix="/maps/"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppDialogTheme" android:name="com.citymapper.app.incoming.GeoIntentActivity" android:screenOrientation="behind" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="geo"/>
+                <data android:scheme="google.navigation"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme.SwitchCity" android:label="" android:name="com.citymapper.app.citychooser.SwitchCityActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/route_option_hoverboard" android:name="com.citymapper.app.jokemodes.HoverboardActivity" android:screenOrientation="sensorPortrait"/>
+        <service android:name="com.citymapper.app.routing.savedtrips.FamiliarNotificationService" android:foregroundServiceType="8"/>
+        <activity android:theme="@style/FBLoginDialog" android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <activity android:theme="@style/AppTheme.IdentityActivity" android:name="com.citymapper.app.user.identity.IdentityActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait" android:parentActivityName="com.citymapper.app.EntryPointActivity"/>
+        <activity android:theme="@style/MagiclinkDialogTheme" android:name="com.citymapper.app.user.identity.MagiclinkLoginActivity" android:screenOrientation="behind"/>
+        <activity android:name="com.citymapper.app.user.identity.IntentStarter" android:taskAffinity="" android:excludeFromRecents="true" android:launchMode="singleInstance" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/HistoryTheme.Green" android:name="com.citymapper.app.user.history.ui.TripHistoryActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.NotificationPreferences" android:label="@string/notification_preferences_activity_title" android:name="com.citymapper.app.settings.NotificationPreferencesActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/PostsPageTheme.NoActionBar" android:label="@string/city_web_view_header" android:name="com.citymapper.app.posts.ui.SingleNewsPostActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.SmartrideSettings" android:name="com.citymapper.app.cabs.history.CabsHistoryActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/CmiTabTheme" android:name="com.citymapper.app.cmi.CmiTabActivity" android:screenOrientation="sensorPortrait"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.DisableViewCrawler" android:value="true"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.DisableDecideChecker" android:value="true"/>
+        <meta-data android:name="com.mixpanel.android.MPConfig.DisableGestureBindingUI" android:value="true"/>
+        <receiver android:name="com.citymapper.app.familiar.FamiliarBroadcastReceiver" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.citymapper.app.commute.CommuteBroadcastReceiver" android:exported="false"/>
+        <receiver android:name="com.citymapper.app.pushnotification.PushNotificationActionReceiver" android:exported="false"/>
+        <receiver android:name="com.citymapper.app.commute.CommuteNotificationService$Receiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.citymapper.app.release.action.COMMUTE_TRIGGER_FIRED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.citymapper.app.commute.KeepAliveReceiver" android:enabled="false" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.citymapper.app.commute.CommuteNotificationController$NotificationReceiver" android:exported="false"/>
+        <receiver android:name="com.citymapper.app.commute.UpdateCommutesReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="com.citymapper.app.release.action.REGION_SWITCH"/>
+                <action android:name="com.citymapper.app.release.action.ROLE_PLACE_UPDATED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.citymapper.app.sharedeta.app.EtaJourneyNotificationController$NotificationReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.citymapper.app.receiver.AppResourceUpdateReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.citymapper.app.job.JobSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.citymapper.app.job.GcmJobService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.citymapper.app.pushnotification.FcmService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.citymapper.app.misc.WearDataListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED"/>
+                <data android:scheme="wear" android:host="*" android:pathPrefix="/citymapper"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.citymapper.app.commute.CommuteNotificationService" android:exported="false" android:foregroundServiceType="8"/>
+        <service android:name="com.citymapper.app.sharedeta.app.EtaJourneyNotificationService" android:exported="false"/>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.citymapper.app.release.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <provider android:name="com.citymapper.app.db.DummyContentProvider" android:exported="false" android:authorities="com.citymapper.app.release.data"/>
+        <activity android:theme="@style/AppTheme.Pass" android:name="com.citymapper.app.pass.signup.PassPosterActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass" android:name="com.citymapper.app.pass.signup.PassDetailInterestActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass" android:name="com.citymapper.app.pass.settings.UpgradePassPosterActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass" android:name="com.citymapper.app.pass.PassTabActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass.Decorated.FAQ" android:name="com.citymapper.app.pass.DecoratedWebviewActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass.Form" android:name="com.citymapper.app.pass.signup.PassSignupFlowActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass.Form" android:name="com.citymapper.app.pass.activation.PassActivationFlowActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/StandalonePhoneVerificationTheme" android:name="com.citymapper.app.pass.settings.PassSettingsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass" android:name="com.citymapper.app.pass.StandalonePassPosterActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass.Dashboard" android:name="com.citymapper.app.pass.dashboard.MoreTransitHistoryActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Pass.Dashboard" android:name="com.citymapper.app.pass.documentcheck.DocumentCheckActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/PaymentsDialogTheme" android:name="com.citymapper.app.payments.checkoutflow.ui.PaymentsActivity" android:screenOrientation="behind"/>
+        <activity android:theme="@style/PaymentsDialogTheme" android:name="com.citymapper.app.payments.checkoutflow.ui.SetupHackneyActivity" android:screenOrientation="behind"/>
+        <activity android:theme="@style/PaymentsSettingsTheme" android:label="@string/payment" android:name="com.citymapper.app.payments.settings.ui.PaymentSettingsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/PaymentsSettingsTheme" android:label="@string/payment" android:name="com.citymapper.app.payments.settings.ui.AddPaymentCardActivity" android:screenOrientation="sensorPortrait"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <activity android:name="com.citymapper.app.identity.ui.verification.InstallationVerificationActivity" android:launchMode="singleTop" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/GodMessagePopup" android:name="com.citymapper.app.godmessage.GodMessagePopupActivity" android:screenOrientation="behind"/>
+        <activity android:theme="@style/AppTheme" android:name="com.citymapper.app.acknowledgement.LibrariesActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/SettingsTheme" android:name="com.citymapper.app.settings.SettingsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.PlaceInfo" android:name="com.citymapper.app.placeinfo.PlaceInfoDetailsBottomSheetActivity"/>
+        <receiver android:name="com.citymapper.app.familiar.nudger.NudgerWakeupTimer$Receiver" android:exported="false"/>
+        <activity android:theme="@style/CustomerSupportTheme" android:name="com.citymapper.app.customersupport.CustomerSupportActivity" android:screenOrientation="sensorPortrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/StandalonePhoneVerificationTheme" android:name="com.citymapper.app.phoneverification.StandalonePhoneVerificationActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/ShareSheetTheme" android:name="com.citymapper.app.dialog.share.ShareSheet" android:excludeFromRecents="true" android:launchMode="singleTop" android:screenOrientation="behind"/>
+        <activity android:theme="@style/SlingShotTheme" android:name="com.citymapper.app.jokemodes.slingshot.SlingShotActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/SkydiveTheme" android:name="com.citymapper.app.jokemodes.SkydiveActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/CoinTheme" android:name="com.citymapper.app.coin.CoinActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.GoTrips" android:name="com.citymapper.app.gotrips.GoTripsActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/AppTheme.JrPersonalisation" android:name="com.citymapper.app.JrPersonalisationActivity"/>
+        <activity android:theme="@style/AppTheme.Subscription" android:name="com.citymapper.app.subscription.SubscriptionsActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/AppTheme.Commute" android:name="com.citymapper.app.commute2.CommuteActivity2" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/SwitchCityTheme" android:name="com.citymapper.app.switchcity.SwitchCityActivity2" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/StripeDefaultTheme" android:name="com.stripe.android.view.AddPaymentMethodActivity"/>
+        <activity android:theme="@style/StripeDefaultTheme" android:name="com.stripe.android.view.PaymentMethodsActivity"/>
+        <activity android:theme="@style/StripeDefaultTheme" android:name="com.stripe.android.view.PaymentFlowActivity"/>
+        <activity android:theme="@style/StripeDefaultTheme" android:name="com.stripe.android.view.PaymentAuthWebViewActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:theme="@style/StripeDefaultTheme" android:name="com.stripe.android.view.PaymentRelayActivity"/>
+        <activity android:theme="@style/StripeDefaultTheme" android:name="com.stripe.android.view.Stripe3ds2CompletionActivity"/>
+        <activity android:theme="@style/StripePaymentSheetDefaultTheme" android:name="com.stripe.android.paymentsheet.PaymentSheetActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/StripePaymentSheetDefaultTheme" android:name="com.stripe.android.paymentsheet.PaymentOptionsActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/StripeGooglePayDefaultTheme" android:name="com.stripe.android.googlepay.StripeGooglePayActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Stripe3DS2Theme" android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity"/>
+        <activity android:theme="@style/Stripe3DS2Theme" android:name="com.stripe.android.stripe3ds2.views.ChallengeProgressActivity"/>
+        <provider android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.citymapper.app.release.lifecycle-process"/>
+        <provider android:name="leakcanary.internal.PlumberInstaller" android:enabled="@bool/leak_canary_plumber_auto_install" android:exported="false" android:authorities="com.citymapper.app.release.plumber-installer"/>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="com.google.firebase.perf.provider.FirebasePerfProvider" android:exported="false" android:authorities="com.citymapper.app.release.firebaseperfprovider" android:initOrder="101"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="fbconnect" android:host="cct.com.citymapper.app.release"/>
+            </intent-filter>
+        </activity>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:exported="false" android:excludeFromRecents="true"/>
+        <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:exported="true" android:visibleToInstantApps="true"/>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false" android:directBootAware="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.citymapper.app.release.firebaseinitprovider" android:initOrder="100" android:directBootAware="true"/>
+        <provider android:name="com.facebook.internal.FacebookInitProvider" android:exported="false" android:authorities="com.citymapper.app.release.FacebookInitProvider"/>
+        <receiver android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false" android:directBootAware="true"/>
+        <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+        <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
+        <activity android:name="com.mixpanel.android.mpmetrics.MixpanelNotificationRouteActivity"/>
+        <receiver android:name="com.mixpanel.android.mpmetrics.MixpanelPushNotificationDismissedReceiver"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <provider android:name="com.flurry.android.agent.FlurryContentProvider" android:exported="false" android:authorities="com.citymapper.app.release.FlurryContentProvider"/>
+        <activity android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:enabled="false" android:exported="false" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true" android:launchMode="singleInstance"/>
+        <activity android:theme="@style/Theme.PlayCore.Transparent" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:enabled="false" android:exported="false" android:stateNotNeeded="true"/>
+        <service android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService" android:enabled="false" android:exported="true"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.2"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.android.billingclient.api.ProxyBillingActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+        <receiver android:name="com.instacart.library.truetime.BootCompletedBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.firebase.ml.vision.DEPENDENCIES" android:value="face,ocr"/>
+        <activity android:theme="@style/OnfidoActivityTheme" android:label="ᜀ" android:name="com.onfido.android.sdk.capture.ui.OnfidoActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:theme="@style/OnfidoCaptureActivityStyle" android:label="ᜁ" android:name="com.onfido.android.sdk.capture.ui.camera.CaptureActivity" android:screenOrientation="sensorPortrait"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base,dynamic_feature_kyc2"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:value="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>
