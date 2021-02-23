@@ -11,8 +11,7 @@ class My_class(object):
     def get_executable_sections(self,pe):
         executable_sections = []
         for section in pe.sections:
-            characteristics = getattr(section, 'Characteristics')
-            if characteristics & 0x00000020 > 0 or characteristics & 0x20000000 > 0:
+            if getattr(section, 'IMAGE_SCN_MEM_EXECUTE'):
                 executable_sections.append(section.Name.rstrip('\x00'))
         
         return executable_sections
