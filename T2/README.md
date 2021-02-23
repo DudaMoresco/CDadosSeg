@@ -89,7 +89,7 @@ BancoX.exe: ['.text', '.data']
 Consiste no nome do dos arquivos dois arquivos .exe que desejam ser analisados.
 
 ```bash
-python T2p2-1.py [caminho arquivo 1] [caminho arquivo 2]
+python T2p2-2.py [caminho arquivo 1] [caminho arquivo 2]
 ```
 
 ### Saída
