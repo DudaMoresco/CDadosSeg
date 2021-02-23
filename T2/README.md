@@ -94,7 +94,7 @@ python T2p2-1.py [caminho arquivo 1] [caminho arquivo 2]
 
 ### Saída
 
-O script retorna a lista de seções de cada arquivo .xml sob forma de um dicionário (chave: nome da APK, valor: lista de permissões). Assim como a lista de seções únicas de cada APK e comuns a todos os arquivos .exe analisados.
+O script retorna a lista de seções de cada arquivo .exe sob forma de um dicionário (chave: nome do PE, valor: lista de permissões). Assim como a lista de seções únicas de cada PE e comuns a todos os arquivos .exe analisados.
 
 ```bash
 ===================
